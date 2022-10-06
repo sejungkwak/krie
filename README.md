@@ -48,45 +48,45 @@ To provide a platform where a user can easily find information and interact with
 ## User Stories
 
 - As a first-time visitor,
-    - I want to know what this site is about immediately so that I can decide whether I will explore further.
-    - I want to navigate pages so that I can understand what types of information I could find here.
+    - [#1](https://github.com/sejungkwak/krie/issues/1) I want to know what this site is about immediately so that I can decide whether I will explore further.
+    - [#2](https://github.com/sejungkwak/krie/issues/2) I want to navigate pages so that I can understand what types of information I could find here.
 
 <br>
 
 - As an unregistered user,
-    - I want to view a list of posts' titles so that I can choose which one to read.
-    - I want to order the posts by their number of likes so that I can see which is the most popular.
-    - I want to view comments on an individual post so that I can read the conversation.
-    - I want to search information with keywords so that I can easily find information that is useful and relevant to me.
-    - I want to sign up so that I can write posts, comment and give a like to other users' posts.
-    - I want to sign up with my _Google_ or _Facebook_ account so that I can easily sign in.
+    - [#3](https://github.com/sejungkwak/krie/issues/3) I want to view a list of posts' titles so that I can choose which one to read.
+    - [#4](https://github.com/sejungkwak/krie/issues/4) I want to order the posts by their number of likes so that I can see which is the most popular.
+    - [#5](https://github.com/sejungkwak/krie/issues/5) I want to view comments on an individual post so that I can read the conversation.
+    - [#6](https://github.com/sejungkwak/krie/issues/6) I want to search information with keywords so that I can easily find information that is useful and relevant to me.
+    - [#7](https://github.com/sejungkwak/krie/issues/7) I want to sign up so that I can write posts, comment and give a like to other users' posts.
+    - [#8](https://github.com/sejungkwak/krie/issues/8) I want to sign up with my _Google_ or _Facebook_ account so that I can easily sign in.
 
 <br>
 
 - As a registered user,
-    - I want to create a post to ask about others' recent experiences with the immigration office so that I can prepare for my upcoming appointment.
-    - I want to create a draft post so that I can continue it at a later date.
-    - I want to leave comments on a post so that I can be involved in the conversation.
-    - I want to leave secret comments with any sensitive information directly visible to the original poster so that I can comfortably share it.
-    - I want to send direct messages to other users so that I can interact with them privately.
-    - I want to give a like to a post so that I can highlight useful content for other users.
-    - I want to remove a like from a post so that I can ensure that I only give it to the content I feel is useful.
-    - I want to edit my post so that I can correct any mistakes or update other users with new information.
-    - I want to delete my post if no one answers my question so that I can maintain a clean profile.
-    - I want to see another user's posts and comments by clicking the username so that I can decide if the user is trustworthy.
-    - I want to see what posts I marked with a like so that I can easily find the post again.
-    - I want to get notified when there is a new comment on my posts so that I can follow up.
-    - I want to sign in and sign out of my account with my credentials so that I can keep my account secure.
-    - I want to update my password so that I can keep my account secure.
-    - I want to reset my password so that I can access my account even if I forget it.
+    - [#9](https://github.com/sejungkwak/krie/issues/9) I want to create a post to ask about others' recent experiences with the immigration office so that I can prepare for my upcoming appointment.
+    - [#10](https://github.com/sejungkwak/krie/issues/10) I want to create a draft post so that I can continue it at a later date.
+    - [#11](https://github.com/sejungkwak/krie/issues/11) I want to leave comments on a post so that I can be involved in the conversation.
+    - [#12](https://github.com/sejungkwak/krie/issues/12) I want to leave secret comments with any sensitive information directly visible to the original poster so that I can comfortably share it.
+    - [#13](https://github.com/sejungkwak/krie/issues/13) I want to send direct messages to other users so that I can interact with them privately.
+    - [#14](https://github.com/sejungkwak/krie/issues/14) I want to give a like to a post so that I can highlight useful content for other users.
+    - [#15](https://github.com/sejungkwak/krie/issues/15) I want to remove a like from a post so that I can ensure that I only give it to the content I feel is useful.
+    - [#16](https://github.com/sejungkwak/krie/issues/16) I want to edit my post so that I can correct any mistakes or update other users with new information.
+    - [#17](https://github.com/sejungkwak/krie/issues/17) I want to delete my post if no one answers my question so that I can maintain a clean profile.
+    - [#18](https://github.com/sejungkwak/krie/issues/18) I want to see another user's posts and comments by clicking the username so that I can decide if the user is trustworthy.
+    - [#19](https://github.com/sejungkwak/krie/issues/19) I want to see what posts I marked with a like so that I can easily find the post again.
+    - [#20](https://github.com/sejungkwak/krie/issues/20) I want to get notified when there is a new comment on my posts so that I can follow up.
+    - [#21](https://github.com/sejungkwak/krie/issues/21) I want to sign in and sign out of my account with my credentials so that I can keep my account secure.
+    - [#22](https://github.com/sejungkwak/krie/issues/22) I want to update my password so that I can keep my account secure.
+    - [#23](https://github.com/sejungkwak/krie/issues/23) I want to reset my password so that I can access my account even if I forget it.
 
 <br>
 
 - As a superuser,
-    - I want to pin important posts so that users can easily view them.
-    - I want to create a category when needed so that I can manage the site effectively.
-    - I want to delete content when inappropriate so that I can maintain the site and ensure that only useful or relevant content remains.
-    - I want to ban scammers'/spammers' accounts so that I can ensure only trusted users can access the site.
+    - [#24](https://github.com/sejungkwak/krie/issues/24) I want to pin important posts so that users can easily view them.
+    - [#25](https://github.com/sejungkwak/krie/issues/25) I want to create a category when needed so that I can manage the site effectively.
+    - [#26](https://github.com/sejungkwak/krie/issues/26) I want to delete content when inappropriate so that I can maintain the site and ensure that only useful or relevant content remains.
+    - [#27](https://github.com/sejungkwak/krie/issues/27) I want to ban scammers'/spammers' accounts so that I can ensure only trusted users can access the site.
 
 <br>
 
