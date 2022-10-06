@@ -10,9 +10,11 @@ __Note__: The site is for educational purposes only and written in English.
 
 [User Experience (UX)](#user-experience-ux)
 - [Project Manifesto](#project-manifesto)
+- [Website Name](#website-name)
 - [Website Goal](#website-goal)
 - [Target Audience](#target-audience)
 - [User Stories](#user-stories)
+- [Design](#design)
 
 <br>
 
@@ -22,14 +24,26 @@ __Note__: The site is for educational purposes only and written in English.
 
 There are very few platforms that are used by Koreans in Ireland. A _Facebook_ page, _Daum_ cafe and _Kakaotalk_ group chat are all that are available. The first two are managed by language school agencies and have become inactive and the latter is the most active platform but there are some limitations, such as anyone who wants to join needs to be invited by one of the members as it is a private group, and a new member will have a difficult time trying to find information that was posted before they joined the chat. This project is intended to overcome all of these flaws with the current platforms.
 
+<br>
+
+## Website Name
+
+_KRIE_ comes from the country code top-level domains for South Korea and Ireland: .kr and .ie.
+
+<br>
+
 ## Website Goal
 
 To provide a platform where a user can easily find information and interact with others.
+
+<br>
 
 ## Target Audience
 
 - Korean people who are planning to live or currently living in Ireland.
 - Other nationality people who are interested in interacting with Korean people in Ireland.
+
+<br>
 
 ## User Stories
 
@@ -73,5 +87,34 @@ To provide a platform where a user can easily find information and interact with
     - I want to create a category when needed so that I can manage the site effectively.
     - I want to delete content when inappropriate so that I can maintain the site and ensure that only useful or relevant content remains.
     - I want to ban scammers'/spammers' accounts so that I can ensure only trusted users can access the site.
+
+<br>
+
+## Design
+
+- Colour Scheme
+
+    The colour scheme has been created based on the Korean and Irish flags. The chosen colours were selected using [_Canva_](https://www.canva.com/).
+
+    ![Colour Scheme](documentation/colour-scheme.png)
+
+- Typography
+
+    [Gothic A1](https://fonts.google.com/specimen/Gothic+A1) is the main font used throughout the whole website with Sans Serif as the fallback font in case the font isn't imported into the browser correctly.
+
+    I have chosen the font with the criteria below in mind:
+
+    - It supports Korean characters.
+    - It gives a neutral emotional response to the reader.
+    - It has a readable body typeface.
+    - It has a variety of weights and styles.
+
+- Logo
+
+    ![Logo](documentation/logo.png)
+
+- Favicon
+
+    ![Favicon](documentation/favicon.ico)
 
 <br>
