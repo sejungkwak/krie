@@ -24,26 +24,18 @@ __Note__: The site is for educational purposes only and written in English.
 
 There are very few platforms that are used by Koreans in Ireland. A _Facebook_ page, _Daum_ cafe and _Kakaotalk_ group chat are all that are available. The first two are managed by language school agencies and have become inactive and the latter is the most active platform but there are some limitations, such as anyone who wants to join needs to be invited by one of the members as it is a private group, and a new member will have a difficult time trying to find information that was posted before they joined the chat. This project is intended to overcome all of these flaws with the current platforms.
 
-<br>
-
 ## Website Name
 
 _KRIE_ comes from the country code top-level domains for South Korea and Ireland: .kr and .ie.
-
-<br>
 
 ## Website Goal
 
 To provide a platform where a user can easily find information and interact with others.
 
-<br>
-
 ## Target Audience
 
 - Korean people who are planning to live or currently living in Ireland.
 - Other nationality people who are interested in interacting with Korean people in Ireland.
-
-<br>
 
 ## User Stories
 
@@ -118,3 +110,47 @@ To provide a platform where a user can easily find information and interact with
     ![Favicon](documentation/favicon.ico)
 
 <br>
+
+## Wireframes
+
+<details>
+    <summary>Homepage</summary>
+    <img src="documentation/wireframes/home.png">
+</details>
+
+<details>
+    <summary>Sign in</summary>
+    <img src="documentation/wireframes/signin.png">
+</details>
+
+<details>
+    <summary>Sign up</summary>
+    <img src="documentation/wireframes/signup.png">
+</details>
+
+<details>
+    <summary>Profile</summary>
+    <img src="documentation/wireframes/profile_posts.png">
+    <img src="documentation/wireframes/profile_comments.png">
+    <img src="documentation/wireframes/profile_about.png">
+    <img src="documentation/wireframes/profile_update.png">
+    <img src="documentation/wireframes/profile_pwchange.png">
+</details>
+
+<details>
+    <summary>Post list and CRUD</summary>
+    <img src="documentation/wireframes/post_list.png">
+    <img src="documentation/wireframes/post_create.png">
+    <img src="documentation/wireframes/post_read.png">
+    <img src="documentation/wireframes/post_update.png">
+    <img src="documentation/wireframes/post_delete.png">
+</details>
+
+<details>
+    <summary>Search result</summary>
+    <img src="documentation/wireframes/search.png">
+</details>
+
+<br>
+
+[Back To **Table of Contents**](#table-of-contents)
