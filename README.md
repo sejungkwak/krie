@@ -16,6 +16,9 @@ __Note__: The site is for educational purposes only and written in English.
 - [User Stories](#user-stories)
 - [Design](#design)
 
+[Technical Design](#technical-design)
+- [Data Model](#data-model)
+
 <br>
 
 # User Experience (UX)
@@ -150,6 +153,18 @@ To provide a platform where a user can easily find information and interact with
     <summary>Search result</summary>
     <img src="documentation/wireframes/search.png">
 </details>
+
+<br>
+
+[Back To **Table of Contents**](#table-of-contents)
+
+# Technical Design
+
+## Data Model
+
+- Entity Relationship Diagram
+
+    ![ER Diagram](documentation/data-model.png)
 
 <br>
 
