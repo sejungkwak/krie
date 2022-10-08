@@ -15,6 +15,7 @@ __Note__: The site is for educational purposes only and written in English.
 - [Target Audience](#target-audience)
 - [User Stories](#user-stories)
 - [Design](#design)
+- [Wireframes](#wireframes)
 
 [Technical Design](#technical-design)
 - [Data Model](#data-model)
