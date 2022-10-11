@@ -1,6 +1,8 @@
 /*--------------- Google fonts ---------------*/
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/*--------------- Custom properties ---------------*/
+
 :root {
     --red-color: #db2a37;
     --blue-color: #0c51ab;
@@ -9,6 +11,7 @@
 }
 
 /*--------------- Basic styling ---------------*/
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -17,11 +20,16 @@
 }
 
 /*=============== Header ===============*/
+
 .navbar-brand {
     display: flex;
     align-items: center;
     width: 20vw;
     max-width: 5rem;
+}
+
+.dropdown {
+    margin: 1rem 0;
 }
 
 /*=============== Form ===============*/
@@ -38,4 +46,18 @@
 .textinput {
     padding: .5rem;
     border-radius: 10px;
+}
+
+/****************************************************************
+************************* Media queries *************************
+*****************************************************************/
+
+@media screen and (min-width: 992px) {
+
+    /*=============== Header ===============*/
+
+    .dropdown-menu[data-bs-popper] {
+        left: unset;
+        right: 0;
+    }
 }
