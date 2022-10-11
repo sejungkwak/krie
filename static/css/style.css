@@ -23,3 +23,19 @@
     width: 20vw;
     max-width: 5rem;
 }
+
+/*=============== Form ===============*/
+
+.controls,
+.textinput {
+    width: 100%;
+}
+
+.controls {
+    margin: .3rem 0 1rem;
+}
+
+.textinput {
+    padding: .5rem;
+    border-radius: 10px;
+}
