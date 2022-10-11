@@ -62,10 +62,22 @@
                 <form class="d-flex" action="/" method="get">
                     <input class="form-control me-2" type="search" aria-label="Search" placeholder="Search">
                 </form>
-                <div class="btn-group my-2">
-                    <button class="btn btn-outline-dark">Sign in</button>
-                    <button class="btn btn-dark">Sign up</button>
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">{{ profile.user.username }}</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Your profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
+                    </ul>
                 </div>
+                {% else %}
+                <li class="btn-group my-2">
+                    <a class="btn btn-outline-dark" href="{% url 'account_login' %}">Sign
+                        in</a>
+                    <a class="btn btn-dark" href="{% url 'account_signup' %}">Sign up</a>
+                </li>
+                {% endif %}
             </div>
         </div>
     </nav>
