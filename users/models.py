@@ -10,8 +10,8 @@ class Profile(models.Model):
     """
     user = models.OneToOneField(
         User,
-        on_delete=models.CASCADE,
-        primary_key=True)
+        null=True,
+        on_delete=models.CASCADE)
     location = models.CharField(max_length=20, blank=True, null=True)
     bio = models.CharField(max_length=200, blank=True, null=True)
 
@@ -26,4 +26,4 @@ def update_profile_signal(sender, instance, created, **kwargs):
     """
     if created:
         Profile.objects.create(user=instance)
-    instance.user.save()
+    instance.profile.save()
