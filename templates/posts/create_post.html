@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row offset-m-5 mt-5">
+        <div class="col-12">
+            <form action="/" method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-dark" type="submit">Post</button>
+                <button class="btn btn-outline-dark">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}
