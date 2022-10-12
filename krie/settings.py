@@ -34,6 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'krie.herokuapp.com',
     '127.0.0.1',
+    'localhost',
     ]
 
 
@@ -67,6 +68,8 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_ADAPTER = 'krie.adapter.UsernameMaxAdapter'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
@@ -160,6 +163,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
