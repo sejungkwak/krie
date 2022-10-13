@@ -1,6 +1,7 @@
 from .models import Category, Post, Comment
 from django.forms import ModelForm, Select, TextInput
 from django_summernote.widgets import SummernoteInplaceWidget
+from crispy_forms.helper import FormHelper
 
 choices = Category.objects.all().values_list('name', 'name')
 choice_list = []
@@ -21,3 +22,18 @@ class PostForm(ModelForm):
             'title': TextInput(),
             'body': SummernoteInplaceWidget()
         }
+
+
+class CommentForm(ModelForm):
+    """
+    Represent a form for leaving a comment
+    """
+
+    def __init__(self, *args, **kwargs):
+        super(CommentForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(form=self)
+        self.fields['body'].label = False
+
+    class Meta:
+        model = Comment
+        fields = ('body',)
