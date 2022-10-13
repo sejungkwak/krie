@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Category, Post, Comment
+from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Category)
@@ -12,17 +13,19 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
     """
     Post panel for the admin site
     """
     list_display = (
+        'id',
         'category',
         'title',
         'author',
         'created_on',
         'updated_on')
     search_fields = ['author', 'title']
+    summernote_fields = ('body',)
     actions = ['delete_selected']
 
 
