@@ -16,6 +16,7 @@ class Post(models.Model):
     """
     Post database model
     """
+    id = models.BigAutoField(primary_key=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -24,8 +25,8 @@ class Post(models.Model):
         Category,
         on_delete=models.CASCADE,
         related_name='posts')
-    title = models.CharField(max_length=30)
-    body = models.TextField()
+    title = models.CharField(max_length=200, unique=True)
+    body = models.TextField(verbose_name='Text')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
