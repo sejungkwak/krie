@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <p><a href="#"><i class="fa-solid fa-arrow-left"></i></a> {{ post.category }}</p>
+        </div>
+    </div>
+    {% if user.id == post.author.id %}
+    <div class="row my-4">
+        <div class="col-12">
+            <li class="btn-group">
+                <a class="btn btn-outline-dark" href="#">Edit</a>
+                <a class="btn btn-outline-dark" href="#">Delete</a>
+            </li>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold">{{ post.title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {% if post.updated_on %}
+            <small>{{ post.author }} | {{ post.updated_on }}</small>
+            {% else %}
+            <small>{{ post.author }} | {{ post.created_on }}</small>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p>{{ post.body | safe }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <strong>
+                {% if user.is_authenticated %}
+                <form class="d-inline" action="/" method="POST">
+                    {% csrf_token %}
+                    {% if liked %}
+                    <button class="border-0 bg-transparent" type="submit" name="post_id" value="{{ post.id }}"><i
+                            class="fas fa-heart"></i></button>
+                    {% else %}
+                    <button class="border-0 bg-transparent" type="submit" name="post_id" value="{{ post.id }}"><i
+                            class="far fa-heart"></i></button>
+                    {% endif %}
+                </form>
+                {% else %}
+                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                {% endif %}
+                <span class="text-secondary"> {{ post.number_of_likes }}</span>
+            </strong>
+        </div>
+    </div>
+    <hr class="mt-5 mb-3">
+    <div class="row">
+        <div class="col-12">
+            <h2>Comments</h2>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="row position-relative mt-2 mb-4">
+        <form class="col-12" action="/" method="POST">
+            {% csrf_token %}
+            {{ comment_form | crispy }}
+            <button class="btn btn-dark position-absolute position-end" type="submit">Add</button>
+        </form>
+    </div>
+    {% endif %}
+    {% for comment in comments %}
+    <div class="d-flex align-items-center">
+        <div class="align-self-center">
+            {% if comment.updated_on %}
+            <small>{{ comment.author }} | {{ comment.updated_on }}</small>
+            {% else %}
+            <small>{{ comment.author }} | {{ comment.created_on }}</small>
+            {% endif %}
+        </div>
+        {% if user.id == comment.author.id %}
+        <div class="ms-auto">
+            <form action="/" method="POST">
+                {% csrf_token %}
+                <li class="btn-group">
+                    <a class="btn btn-sm btn-outline-dark" href="#">Edit</a>
+                    <a class="btn btn-sm btn-outline-dark" href="#">Delete</a>
+                </li>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p class="fs-5">{{ comment.body }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
