@@ -10,4 +10,8 @@ urlpatterns = [
         '<str:category_name>/<int:post_id>/',
         views.PostDetailView.as_view(),
         name='read_post'),
+    path(
+        '<str:category_name>/<int:pk>/delete_post/',
+        views.PostDeleteView.as_view(),
+        name='delete_post'),
 ]
