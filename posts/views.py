@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from .models import Category, Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -36,3 +37,18 @@ class PostDetailView(View):
                 'comment_form': CommentForm()
             }
         )
+
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
+
+    model = Post
+    template_name = 'posts/delete_post.html'
+    success_url = reverse_lazy('home')  # temporary redirect url
+
+    def test_func(self):
+        if self.get_object().author == self.request.user:
+            return True
+
+    def delete(self, request, *args, **kwargs):
+        object = self.get_object()
+        return super().delete(request, *args, **kwargs)
