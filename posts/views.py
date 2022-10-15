@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.urls import reverse, reverse_lazy
 from django.views import View
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView
@@ -72,3 +73,16 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         object = self.get_object()
         return super().delete(request, *args, **kwargs)
+
+
+class PostLikeView(View):
+
+    def post(self, request, *arg, **kwargs):
+        post = get_object_or_404(Post, id=request.POST.get('post_id'))
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
