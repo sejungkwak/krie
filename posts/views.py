@@ -2,9 +2,24 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views import View
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView
 from .models import Category, Post, Comment
 from .forms import PostForm, CommentForm
+
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'post_list'
+    paginated_by = 10
+
+    def get_queryset(self):
+        return super(PostListView, self).get_queryset().filter(category__slug=self.kwargs['category_slug'])
+
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context['posts'] = Post.objects.filter(category__slug=self.kwargs['category_slug'])
+        return context
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
