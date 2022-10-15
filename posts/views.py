@@ -14,10 +14,10 @@ class PostListView(ListView):
     paginated_by = 10
 
     def get_queryset(self):
-        return super(PostListView, self).get_queryset().filter(category__slug=self.kwargs['category_slug'])
+        return super().get_queryset().filter(category__slug=self.kwargs['category_slug'])
 
     def get_context_data(self, **kwargs):
-        context = super(PostListView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.filter(category__slug=self.kwargs['category_slug'])
         return context
 
@@ -25,7 +25,12 @@ class PostListView(ListView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'posts/create_post.html'
-    fields = ['category', 'title', 'body']
+    form_class = PostForm
+    success_url = reverse_lazy('home')  # temporary redirect url
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class PostDetailView(View):
