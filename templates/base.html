@@ -49,19 +49,19 @@
             <div class="collapse navbar-collapse" id="nav-items">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5" href="#">Rooms</a>
+                        <a class="nav-link fw-semibold fs-5" href="{% url 'post_list' category_id=1 %}">Rooms</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5" href="#">Jobs</a>
+                        <a class="nav-link fw-semibold fs-5" href="{% url 'post_list' category_id=2 %}">Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5" href="#">Visas</a>
+                        <a class="nav-link fw-semibold fs-5" href="{% url 'post_list' category_id=3 %}">Visas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5" href="#">Market</a>
+                        <a class="nav-link fw-semibold fs-5" href="{% url 'post_list' category_id=4 %}">Market</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5" href="#">Random</a>
+                        <a class="nav-link fw-semibold fs-5" href="{% url 'post_list' category_id=5 %}">Random</a>
                     </li>
                 </ul>
                 <form class="d-flex" action="/" method="get">
