@@ -6,7 +6,11 @@ class Category(models.Model):
     """
     Category database model
     """
+    slug = models.SlugField(max_length=15, unique=True)
     name = models.CharField(max_length=15, unique=True)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name
