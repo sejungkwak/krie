@@ -19,4 +19,9 @@ urlpatterns = [
         views.PostListView.as_view(),
         name='post_list'
     ),
+    path(
+        'like/<int:pk>',
+        views.PostLikeView.as_view(),
+        name='post_like'
+    ),
 ]
