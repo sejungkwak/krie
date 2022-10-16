@@ -12,7 +12,7 @@ from .forms import PostForm, CommentForm
 class PostListView(ListView):
     model = Post
     template_name = 'post_list'
-    paginated_by = 10
+    paginate_by = 10
 
     def get_queryset(self):
         return super().get_queryset().filter(category__slug=self.kwargs['category_slug'])
