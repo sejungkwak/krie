@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     'krie.herokuapp.com',
     '127.0.0.1',
     'localhost',
-    ]
+]
 
 
 # Application definition
@@ -60,6 +60,9 @@ INSTALLED_APPS = [
     'posts',
 ]
 
+
+# Allauth config
+
 SITE_ID = 1
 
 LOGIN_URL = '/accounts/login/'
@@ -71,8 +74,6 @@ ACCOUNT_ADAPTER = 'krie.adapter.UsernameMaxAdapter'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 MESSAGE_TAGS = {
@@ -81,6 +82,35 @@ MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger'
+}
+
+
+# Summernote config
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SUMMERNOTE_THEME = 'bs4'
+
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+
+    'summernote': {
+        # Change editor size
+        'width': '100%',
+        'height': '480',
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link', 'picture']],
+            ['view', ['fullscreen']],
+        ],
+    },
 }
 
 MIDDLEWARE = [
