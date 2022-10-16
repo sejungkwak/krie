@@ -8,6 +8,7 @@ class Profile(models.Model):
     """
     User profile database model
     """
+    id = models.BigAutoField(primary_key=True)
     user = models.OneToOneField(
         User,
         null=True,
