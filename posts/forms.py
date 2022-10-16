@@ -18,10 +18,12 @@ class PostForm(ModelForm):
         model = Post
         fields = ('category', 'title', 'body')
         widgets = {
-            'category': Select(choices=choice_list),
+            'category': Select(
+                choices=choice_list,
+                attrs={
+                    'class': 'form-select'}),
             'title': TextInput(),
-            'body': SummernoteWidget()
-        }
+            'body': SummernoteWidget()}
 
 
 class CommentForm(ModelForm):
