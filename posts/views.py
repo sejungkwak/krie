@@ -15,11 +15,13 @@ class PostListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return super().get_queryset().filter(category__slug=self.kwargs['category_slug'])
+        return super().get_queryset().filter(
+            category__slug=self.kwargs['category_slug'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.filter(category__slug=self.kwargs['category_slug'])
+        context['posts'] = Post.objects.filter(
+            category__slug=self.kwargs['category_slug'])
         return context
 
 
@@ -27,11 +29,15 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'posts/create_post.html'
     form_class = PostForm
-    success_url = reverse_lazy('home')  # temporary redirect url
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'post_list', kwargs={
+                'category_slug': self.object.category.slug})
 
 
 class PostDetailView(View):
@@ -64,7 +70,6 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
 
     model = Post
     template_name = 'posts/delete_post.html'
-    success_url = reverse_lazy('home')  # temporary redirect url
 
     def test_func(self):
         if self.get_object().author == self.request.user:
@@ -73,6 +78,11 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         object = self.get_object()
         return super().delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'post_list', kwargs={
+                'category_slug': self.object.category.slug})
 
 
 class PostLikeView(View):
