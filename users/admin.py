@@ -7,7 +7,10 @@ class ProfileAdmin(admin.ModelAdmin):
     Profile view in the admin panel
     """
     model = Profile
-    list_display = ('username', 'email', 'date_joined')
+    list_display = ('id', 'username', 'email', 'date_joined')
+
+    def id(self, obj):
+        return obj.id
 
     def username(self, obj):
         return obj.user.username
