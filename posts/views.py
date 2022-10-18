@@ -11,7 +11,7 @@ from .forms import PostForm, CommentForm
 
 class PostListView(ListView):
     model = Post
-    template_name = 'post_list'
+    template_name = 'posts/post_list.html'
     paginate_by = 10
 
     def get_queryset(self):
@@ -45,9 +45,8 @@ class PostDetailView(View):
     template_name = 'posts/read_post.html'
 
     def get(self, request, *arg, **kwargs):
-        queryset = Post.objects.all()
         id = self.kwargs.get('post_id')
-        post = get_object_or_404(queryset, pk=id)
+        post = get_object_or_404(Post, pk=id)
         comments = post.comments.order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
