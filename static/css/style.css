@@ -69,6 +69,10 @@
     margin: unset;
 }
 
+.input-comment {
+    padding-right: 4rem;
+}
+
 .asteriskField {
     display: none;
 }
