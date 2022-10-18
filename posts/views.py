@@ -64,6 +64,21 @@ class PostDetailView(View):
             }
         )
 
+    def post(self, request, *arg, **kwargs):
+        id = self.kwargs.get('post_id')
+        post = get_object_or_404(Post, pk=id)
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.author = request.user
+            comment = comment_form.save(commit=False)
+            comment.original_post = post
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
+
 
 class PostDeleteView(UserPassesTestMixin, DeleteView):
 
