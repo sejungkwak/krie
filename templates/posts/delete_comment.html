@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+<main class="container">
+    <div class="my-5">
+        <h1>{% trans "Delete your comment on this post: " %}{{ comment.original_post.title }}</h1>
+        <p>{% trans "Your comment: " %}{{ comment.body }}</p>
+    </div>
+    <p>{% trans "Are you sure you want to delete this comment?" %}</p>
+    <p>{% trans "It cannot be restored once it's deleted." %}</p>
+    <form class="mt-5" method="POST">
+        {% csrf_token %}
+        {{ form | crispy }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-dark" type="submit">{% trans "Delete" %}</button>
+        <a class="btn btn-outline-dark" href="{{ request.META.HTTP_REFERER }}">{% trans "Cancel" %}</a>
+    </form>
+</main>
+
+{% endblock %}

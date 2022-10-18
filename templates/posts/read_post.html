@@ -88,7 +88,8 @@
                 {% csrf_token %}
                 <li class="btn-group">
                     <a class="btn btn-sm btn-outline-dark" href="#">{% trans "Edit" %}</a>
-                    <a class="btn btn-sm btn-outline-dark" href="#">{% trans "Delete" %}</a>
+                    <a class="btn btn-sm btn-outline-dark"
+                        href="{% url 'delete_comment' category_slug=post.category.slug post_id=post.id pk=comment.pk %}">{% trans "Delete" %}</a>
                 </li>
             </form>
         </div>

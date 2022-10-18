@@ -99,6 +99,26 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
                 'category_slug': self.object.category.slug})
 
 
+class CommentDeleteView(UserPassesTestMixin, DeleteView):
+
+    model = Comment
+    template_name = 'posts/delete_comment.html'
+
+    def test_func(self):
+        if self.get_object().author == self.request.user:
+            return True
+
+    def delete(self, request, *args, **kwargs):
+        object = self.get_object()
+        return super().delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'read_post', kwargs={
+                'category_slug': self.object.original_post.category.slug,
+                'post_id': self.object.original_post.id})
+
+
 class PostLikeView(View):
 
     def post(self, request, *arg, **kwargs):
