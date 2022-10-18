@@ -29,7 +29,9 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <small>{{ post.author }} | {{ post.updated_on | date:'d/m/Y H:i' }}</small>
+            <small><a class="link-dark text-decoration-none"
+                    href="{% url 'read_profile' pk=post.author.id %}">{{ post.author }}</a> |
+                {{ post.updated_on | date:'d/m/Y H:i' }}</small>
         </div>
     </div>
     <div class="row">
@@ -76,7 +78,8 @@
     {% for comment in comments %}
     <div class="d-flex align-items-center">
         <div class="align-self-center">
-            <small>{{ comment.author }} | {{ comment.updated_on }}</small>
+            <small><a class="link-dark text-decoration-none" href="#">{{ comment.author }}</a> |
+                {{ comment.updated_on }}</small>
         </div>
         {% if user.id == comment.author.id %}
         <div class="ms-auto">
