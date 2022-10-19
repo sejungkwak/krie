@@ -37,8 +37,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy(
-            'post_list', kwargs={
-                'category_slug': self.object.category.slug})
+            'read_post', kwargs={
+                'category_slug': self.object.category.slug,
+                'post_id': self.object.id})
 
 
 class PostDetailView(View):
