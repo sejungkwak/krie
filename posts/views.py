@@ -48,7 +48,7 @@ class PostDetailView(View):
     def get(self, request, *arg, **kwargs):
         id = self.kwargs.get('post_id')
         post = get_object_or_404(Post, pk=id)
-        comments = post.comments.order_by('-created_on')
+        comments = post.comments.order_by('created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
