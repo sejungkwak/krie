@@ -11,6 +11,10 @@ urlpatterns = [
         views.PostDetailView.as_view(),
         name='read_post'),
     path(
+        '<slug:category_slug>/<int:pk>/edit_post',
+        views.PostUpdateView.as_view(),
+        name='update_post'),
+    path(
         '<slug:category_slug>/<int:pk>/delete_post/',
         views.PostDeleteView.as_view(),
         name='delete_post'),
