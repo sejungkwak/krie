@@ -15,7 +15,8 @@
     <div class="row my-3 my-lg-4">
         <div class="col-12">
             <li class="btn-group">
-                <a class="btn btn-sm btn-outline-dark" href="#">{% trans "Edit" %}</a>
+                <a class="btn btn-sm btn-outline-dark"
+                    href="{% url 'update_post' category_slug=post.category.slug pk=post.id %}">{% trans "Edit" %}</a>
                 <a class="btn btn-sm btn-outline-dark"
                     href="{% url 'delete_post' category_slug=post.category.slug pk=post.id %}">{% trans "Delete" %}</a>
             </li>
