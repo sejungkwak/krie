@@ -71,7 +71,14 @@
         <form class="col-12" method="POST">
             {% csrf_token %}
             {{ comment_form | crispy }}
+            {% if new_comment %}
             <button class="btn btn-dark position-absolute position-end" type="submit">{% trans "Add" %}</button>
+            {% else %}
+            <li class="btn-group position-absolute position-end">
+                <button class="btn btn-dark" type="submit">{% trans "Edit" %}</button>
+                <a class="btn btn-outline-dark" href="{{ request.META.HTTP_REFERER }}">{% trans "Cancel" %}</a>
+            </li>
+            {% endif %}
         </form>
     </div>
     {% endif %}
@@ -84,14 +91,12 @@
         </div>
         {% if user.id == comment.author.id %}
         <div class="ms-auto">
-            <form action="/" method="POST">
-                {% csrf_token %}
-                <li class="btn-group">
-                    <a class="btn btn-sm btn-outline-dark" href="#">{% trans "Edit" %}</a>
-                    <a class="btn btn-sm btn-outline-dark"
-                        href="{% url 'delete_comment' category_slug=post.category.slug post_id=post.id pk=comment.pk %}">{% trans "Delete" %}</a>
-                </li>
-            </form>
+            <li class="btn-group">
+                <a class="btn btn-sm btn-outline-dark"
+                    href="{% url 'update_comment' category_slug=post.category.slug post_id=post.id pk=comment.pk %}">{% trans "Edit" %}</a>
+                <a class="btn btn-sm btn-outline-dark"
+                    href="{% url 'delete_comment' category_slug=post.category.slug post_id=post.id pk=comment.pk %}">{% trans "Delete" %}</a>
+            </li>
         </div>
         {% endif %}
     </div>
