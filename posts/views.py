@@ -82,6 +82,22 @@ class PostDetailView(View):
         return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
 
 
+class PostUpdateView(UserPassesTestMixin, UpdateView):
+
+    model = Post
+    template_name = 'posts/create_post.html'
+    form_class = PostForm
+
+    def test_func(self):
+        if self.get_object().author == self.request.user:
+            return True
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'read_post', kwargs={
+                'category_slug': self.object.category.slug, 'post_id': self.object.id})
+
+
 class PostDeleteView(UserPassesTestMixin, DeleteView):
 
     model = Post
