@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% block head_title %}{{ request.path | slice:"7:-1" | capfirst }}{% endblock %}
+
 {% block content %}
 
-<div class="container">
+<main class="container">
 
     <div class="d-flex align-items-center my-5">
         <div class="flex-grow-1">
@@ -85,6 +87,6 @@
         </ul>
     </nav>
     {% endif %}
-</div>
+</main>
 
 {% endblock %}

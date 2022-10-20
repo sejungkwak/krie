@@ -2,6 +2,14 @@
 {% load static %}
 {% load i18n %}
 {% load crispy_forms_tags %}
+{% block head_title %}
+    {% if request.user == profile.user %}
+        {% trans "Your profile" %}
+    {% else %}
+        {{ profile.user.username | capfirst }}{% trans "'s profile" %}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
 <main class="container mt-1 mt-lg-5">
@@ -9,7 +17,7 @@
         <div class="d-flex align-items-center col-auto col-lg-12">
             <h1 class="fw-bold mb-0">{{ profile.user.username | capfirst }}</h1>
         </div>
-        {% if request.user == user %}
+        {% if request.user == profile.user %}
         <div class="col-auto d-flex d-lg-none">
             <div class="dropdown">
                 <button class="btn btn-like" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,7 +33,7 @@
         {% endif %}
     </div>
     <div class="row mt-1 mt-md-4 mt-lg-5">
-        {% if request.user == user %}
+        {% if request.user == profile.user %}
         <aside class="col-2 d-none d-lg-block">
             <ul class="d-flex flex-column gap-4 list-unstyled">
                 <li class=""><a class="text-decoration-none text-dark fs-6" href="#">{% trans "Edit profile" %}</a></li>
@@ -53,66 +61,66 @@
                     <section class="profile-content pe-lg-0 active col-12" id="profilePosts">
                         <div class="row w-100">
                             {% if posts %}
-                            {% for post in posts %}
-                            <div class="col-8 col-lg-10">
-                                <div class="row">
-                                    <div class="col-12 col-lg-10 mb-3 d-flex align-items-center justify-content-start">
-                                        <a class="fs-5 fw-bold text-decoration-none text-dark"
-                                            href="{% url 'read_post' category_slug=post.category.slug post_id=post.id %}">{{ post.title }}</a>
-                                    </div>
-                                    <div class="col-12 col-lg-1 mb-3 d-flex align-items-center justify-content-start">
-                                        <small>{{ post.updated_on | date:'d/m/Y' }}</small>
+                                {% for post in posts %}
+                                <div class="col-8 col-lg-10">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-10 mb-3 d-flex align-items-center justify-content-start">
+                                            <a class="fs-5 fw-bold text-decoration-none text-dark"
+                                                href="{% url 'read_post' category_slug=post.category.slug post_id=post.id %}">{{ post.title }}</a>
+                                        </div>
+                                        <div class="col-12 col-lg-1 mb-3 d-flex align-items-center justify-content-start">
+                                            <small>{{ post.updated_on | date:'d/m/Y' }}</small>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-center">
-                                <i class="d-inline p-2 fa-solid fa-comment-dots"></i>
-                                <small>{{ post.number_of_comments }}</small>
-                            </div>
-                            <div
-                                class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-end">
-                                <i class="d-inline p-2 fa-solid fa-heart"></i>
-                                <small>{{ post.number_of_likes }}</small>
-                            </div>
-                            {% endfor %}
+                                <div
+                                    class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-center">
+                                    <i class="d-inline p-2 fa-solid fa-comment-dots"></i>
+                                    <small>{{ post.number_of_comments }}</small>
+                                </div>
+                                <div
+                                    class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-end">
+                                    <i class="d-inline p-2 fa-solid fa-heart"></i>
+                                    <small>{{ post.number_of_likes }}</small>
+                                </div>
+                                {% endfor %}
                             {% else %}
-                            <p class="col-12">{% trans "There are no posts by " %}{{ user.username }}</p>
+                            <p class="col-12">{% trans "There are no posts by " %}{{ profile.user.username }}</p>
                             {% endif %}
                         </div>
                     </section>
                     <section class="profile-content pe-lg-0 col-12" id="profileComments">
                         <div class="row w-100">
                             {% if comments %}
-                            {% for comment in comments %}
-                            <div class="col-8 col-lg-10">
-                                <div class="row">
-                                    <div class="col-12 col-lg-9 mb-3 d-flex align-items-center justify-content-start">
-                                        <a class="fs-5 fw-bold text-decoration-none text-dark"
-                                            href="{% url 'read_post' category_slug=comment.original_post.category.slug post_id=comment.original_post.id %}">{{ comment.original_post.title }}</a>
-                                    </div>
-                                    <div class="col-auto col-lg-2 mb-3 d-flex align-items-center justify-content-start">
-                                        <small>{{ comment.original_post.author }}</small>
-                                    </div>
-                                    <div
-                                        class="col-auto col-lg-1 mb-3 d-flex align-items-center justify-content-center">
-                                        <small>{{ comment.original_post.updated_on | date:'d/m/Y' }}</small>
+                                {% for comment in comments %}
+                                <div class="col-8 col-lg-10">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-9 mb-3 d-flex align-items-center justify-content-start">
+                                            <a class="fs-5 fw-bold text-decoration-none text-dark"
+                                                href="{% url 'read_post' category_slug=comment.original_post.category.slug post_id=comment.original_post.id %}">{{ comment.original_post.title }}</a>
+                                        </div>
+                                        <div class="col-auto col-lg-2 mb-3 d-flex align-items-center justify-content-start">
+                                            <small>{{ comment.original_post.author }}</small>
+                                        </div>
+                                        <div
+                                            class="col-auto col-lg-1 mb-3 d-flex align-items-center justify-content-center">
+                                            <small>{{ comment.original_post.updated_on | date:'d/m/Y' }}</small>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-center">
-                                <i class="d-inline p-2 fa-solid fa-comment-dots"></i>
-                                <small>{{ comment.original_post.number_of_comments }}</small>
-                            </div>
-                            <div
-                                class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-end">
-                                <i class="d-inline p-2 fa-solid fa-heart"></i>
-                                <small>{{ comment.original_post.number_of_likes }}</small>
-                            </div>
-                            {% endfor %}
+                                <div
+                                    class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-center">
+                                    <i class="d-inline p-2 fa-solid fa-comment-dots"></i>
+                                    <small>{{ comment.original_post.number_of_comments }}</small>
+                                </div>
+                                <div
+                                    class="col-2 col-lg-1 pe-0 mb-3 text-center d-flex align-items-center justify-content-end">
+                                    <i class="d-inline p-2 fa-solid fa-heart"></i>
+                                    <small>{{ comment.original_post.number_of_likes }}</small>
+                                </div>
+                                {% endfor %}
                             {% else %}
-                            <p class="col-12">{% trans "There are no comments by " %}{{ user.username }}</p>
+                            <p class="col-12">{% trans "There are no comments by " %}{{ profile.user.username }}</p>
                             {% endif %}
                         </div>
                     </section>
@@ -120,25 +128,27 @@
                         <div class="row w-100">
                             <div class="col-12 mb-5">
                                 <h2>Location</h2>
-                                {% if profile.location %}
-                                <p>{{ profile.location }}</p>
-                                {% else %}
-                                <p>{{ user.username | capfirst }} {% trans "hasn't shared their location" %}</p>
-                                {% endif %}
+                                    {% if profile.location %}
+                                    <p>{{ profile.location }}</p>
+                                    {% else %}
+                                    <p>{{ profile.user.username | capfirst }} {% trans "hasn't shared their location" %}</p>
+                                    {% endif %}
                             </div>
                             <div class="col-12">
                                 <h2>About</h2>
-                                {% if profile.bio %}
-                                <p>{{ profile.bio }}</p>
-                                {% else %}
-                                <p>{{ user.username | capfirst }} {% trans "hasn't shared their description" %}</p>
-                                {% endif %}
+                                    {% if profile.bio %}
+                                    <p>{{ profile.bio }}</p>
+                                    {% else %}
+                                    <p>{{ profile.user.username | capfirst }} {% trans "hasn't shared their description" %}
+                                    </p>
+                                    {% endif %}
                             </div>
                         </div>
                     </section>
                 </article>
             </div>
         </div>
+    </div>
 </main>
 
 {% endblock %}

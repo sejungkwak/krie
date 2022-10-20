@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load crispy_forms_tags %}
+{% block head_title %}{% trans "Create post" %}{% endblock %}
+
 {% block content %}
-<div class="container">
+
+<main class="container">
     <div class="row offset-m-5 mt-5">
         <div class="col-12">
             <form method="POST">
@@ -16,5 +19,6 @@
             </form>
         </div>
     </div>
-</div>
+</main>
+
 {% endblock%}

@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
+{% block head_title %}{% trans "Delete comment" %}{% endblock %}
+
 {% block content %}
+
 <main class="container">
     <div class="my-5">
         <h1>{% trans "Delete your comment on this post: " %}{{ comment.original_post.title }}</h1>
