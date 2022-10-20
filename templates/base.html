@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <title>Krie</title>
+    <title>{% trans "Krie | " %}{% block head_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -68,8 +69,14 @@
                             href="{% url 'post_list' category_slug='random' %}">Random</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="/" method="get">
-                    <input class="form-control me-2" type="search" aria-label="Search" placeholder="Search">
+                <form class="d-flex me-2" action="{% url 'search_results' %}" method="get">
+                    {% csrf_token %}
+                    <label class="d-flex input-group" for="search">
+                        <input class="form-control" id="search" type="search" name="q" aria-label="Search"
+                            placeholder="Search" autocomplete="off" required>
+                        <button class="btn btn-outline-secondary" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </label>
                 </form>
                 {% if user.is_authenticated %}
                 <div class="dropdown">
@@ -104,8 +111,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
+
     {% block script %}
     {% endblock %}
+
 </body>
 
 </html>
