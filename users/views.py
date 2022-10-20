@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import DetailView
+from django.views.generic.list import ListView
 from .models import Profile
 from posts.models import Post, Comment
 
 
-class ProfileDetailView(LoginRequiredMixin, DetailView):
+class ProfileDetailView(LoginRequiredMixin, ListView):
     """
     Profile view for users to view their own profile and others
     """
@@ -13,16 +13,11 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'users/read_profile.html'
 
-    def get(self, request, pk, *args, **kwargs):
-        profile = Profile.objects.get(pk=pk)
-        user = profile.user
-        posts = Post.objects.filter(author=user).order_by('-created_on')
-        comments = Comment.objects.filter(author=user).order_by('-created_on')
-
-        context = {
-            'user': user,
-            'profile': profile,
-            'posts': posts,
-            'comments': comments
-        }
-        return render(request, 'users/read_profile.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.get(pk=self.kwargs['pk'])
+        context['posts'] = Post.objects.filter(
+            author=self.kwargs['pk']).order_by('-created_on')
+        context['comments'] = Comment.objects.filter(
+            author=self.kwargs['pk']).order_by('-created_on')
+        return context
