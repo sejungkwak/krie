@@ -4,8 +4,9 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="vh-100 d-flex align-items-center justify-content-center">
+
+<main class="container vh-100">
+    <div class="d-flex align-items-center justify-content-center my-3 my-lg-5">
         <div class="row offset-m-3">
             <div class="col-12">
                 <div class="row mb-4">
@@ -25,10 +26,11 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <hr class="my-4">
-                <button class="btn w-100 btn-outline-dark" type="submit">{% trans "Sign Up" %}</button>
+                <small>{% trans "By signing up, you agree to the " %}<a href="{% url 'terms_conditions' %}">{% trans "Terms and Conditions" %}</a>{% trans " and " %}<a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a>{% trans "." %}</small>
+                <button class="btn w-100 btn-outline-dark my-3" type="submit">{% trans "Sign Up" %}</button>
             </form>
         </div>
     </div>
-</div>
+</main>
 
 {% endblock %}
