@@ -32,6 +32,26 @@
     margin: 1rem 0;
 }
 
+/*=============== Homepage ===============*/
+
+/*--------------- Hero image ---------------*/
+
+.hero-image {
+    height: 90vh;
+    max-height: 50rem;
+}
+
+/*--------------- Category images ---------------*/
+
+.card {
+    min-width: 15rem;
+    max-height: 27rem;
+}
+
+.card-img {
+    opacity: .4;
+}
+
 /*=============== Form ===============*/
 
 .controls,
