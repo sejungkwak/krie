@@ -4,15 +4,15 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="vh-100 d-flex align-items-center justify-content-center">
+<main class="container flex-shrink-0 my-3 my-lg-5 py-5">
+    <div class="d-flex align-items-center justify-content-center">
         <div class="row offset-m-3">
             <div class="col-12">
                 <div class="row mb-4">
-                    <div class="col-md-7 col-sm-12">
+                    <div class="col-sm-12 col-md-7">
                         <h1 class="text-center text-md-start">{% trans "Sign In" %}</h1>
                     </div>
-                    <div class="col-md-5 col-sm-12">
+                    <div class="col-sm-12 col-md-5">
                         <p class="text-center text-md-end">{% blocktrans %}<a href="{{ signup_url }}">I don't have an
                                 account.</a>{% endblocktrans %}
                         </p>
@@ -31,5 +31,5 @@
             </form>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
