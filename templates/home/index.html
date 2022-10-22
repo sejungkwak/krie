@@ -3,5 +3,62 @@
 {% block head_title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
+<main class="container-fluid">
+
+    <section class="hero-image container">
+
+    </section>
+
+    <section class="categories container my-3 p-0">
+        <ul class="card-group gap-3 gap-lg-1 p-0 list-unstyled">
+            <li class="card rounded border-0 bg-dark overflow-hidden">
+                <a class="category-link text-white" href="{% url 'post_list' category_slug='rooms' %}">
+                    <img class="card-img" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1666463665/static/img/categories/rooms_jojf89.jpg" alt="A red door of a georgian house">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-end">
+                        <p class="card-title fs-5 fw-bold">{% trans "Rooms" %}</p>
+                        <small class="card-text">{% trans "All things accommodation related" %}</small>
+                    </div>
+                </a>
+            </li>
+            <li class="card rounded border-0 bg-dark overflow-hidden">
+                <a class="category-link text-white" href="{% url 'post_list' category_slug='jobs' %}">
+                    <img class="card-img" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1666463666/static/img/categories/jobs_r0ibqb.jpg" alt="For hire sign">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-end">
+                        <p class="card-title fs-5 fw-bold">{% trans "Jobs" %}</p>
+                        <small class="card-text">{% trans "All thing work related" %}</small>
+                    </div>
+                </a>
+            </li>
+            <li class="card rounded border-0 bg-dark overflow-hidden">
+                <a class="category-link text-white" href="{% url 'post_list' category_slug='visas' %}">
+                    <img class="card-img" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1666463666/static/img/categories/visas_te85nw.jpg" alt="Immigration stamps on a passport">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-end">
+                        <p class="card-title fs-5 fw-bold">{% trans "Visas" %}</p>
+                        <small class="card-text">{% trans "All things visa related" %}</small>
+                    </div>
+                </a>
+            </li>
+            <li class="card rounded border-0 bg-dark overflow-hidden">
+                <a class="category-link text-white" href="{% url 'post_list' category_slug='market' %}">
+                    <img class="card-img" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1666463665/static/img/categories/market_wke9sq.jpg" alt="Shopping bags">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-end">
+                        <p class="card-title fs-5 fw-bold">{% trans "Market" %}</p>
+                        <small class="card-text">{% trans "All things shopping related" %}</small>
+                    </div>
+                </a>
+            </li>
+            <li class="card rounded border-0 bg-dark overflow-hidden">
+                <a class="category-link text-white" href="{% url 'post_list' category_slug='random' %}">
+                    <img class="card-img" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1666463666/static/img/categories/random_featsl.jpg" alt="The temple bar">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-end">
+                        <p class="card-title fs-5 fw-bold">{% trans "Random" %}</p>
+                        <small class="card-text">{% trans "Everything else" %}</small>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+</main>
 
 {% endblock%}
