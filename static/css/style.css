@@ -32,6 +32,27 @@
     margin: 1rem 0;
 }
 
+/*=============== Footer ===============*/
+
+.footer-item {
+    width: 1.5rem;
+}
+
+.footer-link {
+    border: none;
+    width: 2rem;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.footer-link:hover .footer-icon-path {
+    fill: var(--orange-color);
+}
+
+.footer-icon-path {
+    fill: var(--bs-gray-600);
+}
+
 /*=============== Homepage ===============*/
 
 /*--------------- Hero image ---------------*/
