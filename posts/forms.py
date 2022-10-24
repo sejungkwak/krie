@@ -3,10 +3,7 @@ from django.forms import ModelForm, Select, TextInput
 from django_summernote.widgets import SummernoteWidget
 from crispy_forms.helper import FormHelper
 
-choices = Category.objects.all().values_list('name', 'name')
-choice_list = []
-for choice in choices:
-    choice_list.append(choice)
+choice_list = [('rooms', 'Rooms'), ('jobs', 'Jobs'), ('visas', 'Visas'), ('market', 'Market'), ('random', 'Random')]
 
 
 class PostForm(ModelForm):
