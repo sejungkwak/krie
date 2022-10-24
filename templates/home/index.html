@@ -3,13 +3,13 @@
 {% block head_title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
-<main class="container-fluid">
+<main class="container-fluid flex-shrink-0">
 
     <section class="hero-image container">
 
     </section>
 
-    <section class="categories container my-3 p-0">
+    <section class="categories container my-3">
         <ul class="card-group gap-3 gap-lg-1 p-0 list-unstyled">
             <li class="card rounded border-0 bg-dark overflow-hidden">
                 <a class="category-link text-white" href="{% url 'post_list' category_slug='rooms' %}">
