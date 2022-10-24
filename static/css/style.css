@@ -55,11 +55,21 @@
 
 /*=============== Homepage ===============*/
 
-/*--------------- Hero image ---------------*/
+/*--------------- Hero section ---------------*/
 
-.hero-image {
+.hero-section {
+    background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666626817/static/img/home/stroke_zavi9s.jpg');
+    background-position: bottom center;
     height: 90vh;
     max-height: 50rem;
+}
+
+.hero-image-container {
+    height: 50%;
+}
+
+.hero-image {
+    max-width: 100%;
 }
 
 /*--------------- Category images ---------------*/
@@ -141,6 +151,21 @@
 ************************* Media queries *************************
 *****************************************************************/
 
+@media screen and (min-width: 576px) {
+
+    /*=============== Homepage ===============*/
+
+    .hero-section {
+        background-clip: content-box;
+    }
+
+    .categories {
+        padding-right: 12px !important;
+        padding-left: 12px !important;
+    }
+
+}
+
 @media screen and (min-width: 992px) {
 
     /*=============== Header ===============*/
@@ -149,4 +174,20 @@
         left: unset;
         right: 0;
     }
+
+    /*=============== Homepage ===============*/
+
+    .hero-section {
+        background-position: top right;
+        background-size: 150%;
+    }
+
+    .hero-text {
+        padding-left: 15rem;
+    }
+
+    .hero-image-container {
+        height: unset;
+    }
+
 }

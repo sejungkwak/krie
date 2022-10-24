@@ -3,13 +3,26 @@
 {% block head_title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
-<main class="container-fluid flex-shrink-0">
+<main class="home container-fluid flex-shrink-0">
 
-    <section class="hero-image container">
-
+    <section class="hero-section container">
+        <div class="row h-100">
+            <div class="hero-text col-12 col-lg-7 d-flex flex-column align-items-center align-items-lg-start justify-content-center mt-5 mt-lg-0 text-white">
+                <h1 class="mb-3 mb-lg-4 fw-bold">{% trans "Korean expats in Ireland" %}</h1>
+                <p class="mb-1 fs-2 fw-lg-semibold">{% trans "Got questions?" %}</p>
+                <p class="mb-0 fs-5">{% trans "Ask & Find answers" %}</p>
+                <p class="fs-5">{% trans "about your new life in Ireland" %}</p>
+                {% if not user.is_authenticated %}
+                    <a class="btn btn-lg btn-outline-light" href="{% url 'account_signup' %}">Sign up to post</a>
+                {% endif %}
+            </div>
+            <div class="hero-image-container col-12 col-lg-5 d-flex align-items-lg-center justify-content-center">
+                <img class="hero-image" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1666631940/static/img/home/hero-image_lqhtua.png" alt="A girl with three question marks on Ireland">
+            </div>
+        </div>
     </section>
 
-    <section class="categories container my-3">
+    <section class="categories container my-3 my-lg-5 px-0">
         <ul class="card-group gap-3 gap-lg-1 p-0 list-unstyled">
             <li class="card rounded border-0 bg-dark overflow-hidden">
                 <a class="category-link text-white" href="{% url 'post_list' category_slug='rooms' %}">
