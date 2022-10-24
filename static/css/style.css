@@ -76,7 +76,9 @@
 /*=============== Form ===============*/
 
 .controls,
-.textinput {
+.textinput,
+.emailinput,
+.textarea {
     width: 100%;
 }
 
@@ -84,9 +86,16 @@
     margin: .3rem 0 1rem;
 }
 
-.textinput {
+.textinput,
+.emailinput,
+.textarea {
     padding: .5rem;
+    border: 1px solid var(--bs-gray-400);
     border-radius: 10px;
+}
+
+.help-block {
+    font-size: .75rem;
 }
 
 .position-end {
