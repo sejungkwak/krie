@@ -77,7 +77,7 @@
     {% else %}
     <p class="fs-3">
         <span>{% trans "Click " %}</span>
-        <a href="{% url 'create_post' %}">here</a>
+        <a href="{% url 'create_post' category_slug='rooms' %}">here</a>
         <span>{% trans " to create a new post. Be the first talk about " %}{{ q }}{% trans "!" %}</span>
     </p>
     {% endif %}

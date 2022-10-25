@@ -36,6 +36,7 @@ class CommentAdmin(admin.ModelAdmin):
     """
     list_display = (
         'original_post',
+        'body',
         'author',
         'created_on',
         'updated_on')

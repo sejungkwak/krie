@@ -12,7 +12,9 @@
         </div>
         {% if user.is_authenticated %}
         <div>
-            <a class="btn btn-sm btn-dark" href="{% url 'create_post' %}">{% trans "Add a post" %}</a>
+            {% with request.path|slice:"7:-1" as param %}
+            <a class="btn btn-sm btn-dark" href="{% url 'create_post' category_slug=param %}">{% trans "Add a post" %}</a>
+            {% endwith %}
         </div>
         {% endif %}
     </div>
