@@ -28,6 +28,20 @@
     max-width: 5rem;
 }
 
+.nav-link {
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 15%;
+    height: 5px;
+    background-color: var(--red-color);
+}
+
 .dropdown {
     margin: 1rem 0;
 }
@@ -60,7 +74,7 @@
 .hero-section {
     background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666626817/static/img/home/stroke_zavi9s.jpg');
     background-position: bottom center;
-    height: 90vh;
+    height: 80vh;
     max-height: 50rem;
 }
 
@@ -169,6 +183,10 @@
 @media screen and (min-width: 992px) {
 
     /*=============== Header ===============*/
+
+    .nav-link.active::after {
+        width: 100%;
+    }
 
     .dropdown-menu[data-bs-popper] {
         left: unset;

@@ -39,29 +39,29 @@
                 <img class="logo w-100" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1665591195/static/img/logo.3f7a2098fbb4.png"
                     alt="K in red, R in blue, I in green, E in gold">
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-items"
+            <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-items"
                 aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav-items">
                 <ul class="navbar-nav me-auto mt-4 mb-2 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5"
+                        <a class="nav-link fw-semibold fs-5 {% if '/rooms/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='rooms' %}">{% trans "Rooms" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5" href="{% url 'post_list' category_slug='jobs' %}">{% trans "Jobs" %}</a>
+                        <a class="nav-link fw-semibold fs-5 {% if '/jobs/' in request.path %}active{% endif %}" href="{% url 'post_list' category_slug='jobs' %}">{% trans "Jobs" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5"
+                        <a class="nav-link fw-semibold fs-5 {% if '/visas/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='visas' %}">{% trans "Visas" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5"
+                        <a class="nav-link fw-semibold fs-5 {% if '/market/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='market' %}">{% trans "Market" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5"
+                        <a class="nav-link fw-semibold fs-5 {% if '/random/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='random' %}">{% trans "Random" %}</a>
                     </li>
                 </ul>
