@@ -37,7 +37,6 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 15%;
     height: 5px;
     background-color: var(--red-color);
 }
@@ -65,36 +64,6 @@
 
 .footer-icon-path {
     fill: var(--bs-gray-600);
-}
-
-/*=============== Homepage ===============*/
-
-/*--------------- Hero section ---------------*/
-
-.hero-section {
-    background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666626817/static/img/home/stroke_zavi9s.jpg');
-    background-position: bottom center;
-    height: 80vh;
-    max-height: 50rem;
-}
-
-.hero-image-container {
-    height: 50%;
-}
-
-.hero-image {
-    max-width: 100%;
-}
-
-/*--------------- Category images ---------------*/
-
-.card {
-    min-width: 15rem;
-    max-height: 27rem;
-}
-
-.card-img {
-    opacity: .4;
 }
 
 /*=============== Form ===============*/
@@ -128,7 +97,45 @@
     transform: translateY(-50%);
 }
 
-/* Create post page */
+/*=============== Homepage ===============*/
+
+/*--------------- Hero section ---------------*/
+
+.hero-section {
+    background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666626817/static/img/home/stroke_zavi9s.jpg');
+    background-position: bottom center;
+    height: 80vh;
+    max-height: 50rem;
+}
+
+.hero-image-container {
+    height: 50%;
+}
+
+.hero-image {
+    max-width: 100%;
+}
+
+/*--------------- Category images ---------------*/
+
+.card-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(7.5rem, 1fr));
+}
+
+.card {
+    max-height: 12rem;
+}
+
+.card:last-child {
+    grid-column: span 2;
+}
+
+.card-img {
+    opacity: .4;
+}
+
+/*=============== Create post page ===============*/
 
 #div_id_category {
     display: flex;
@@ -165,9 +172,27 @@
 ************************* Media queries *************************
 *****************************************************************/
 
+/*=============== For small size mobile phones (e.g. iPhone4) ===============*/
+
+@media screen and (max-width: 350px) {
+
+    /*--------------- Homepage ---------------*/
+
+    .hero-section {
+        background-position: center center;
+    }
+
+    .categories {
+        margin-top: 3rem !important;
+    }
+
+}
+
+/*=============== Bootstrap breakpoint for small screen size devices ===============*/
+
 @media screen and (min-width: 576px) {
 
-    /*=============== Homepage ===============*/
+    /*--------------- Homepage ---------------*/
 
     .hero-section {
         background-clip: content-box;
@@ -178,11 +203,23 @@
         padding-left: 12px !important;
     }
 
+    .card-group {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .card {
+        min-width: 15rem;
+        max-height: 27rem;
+    }
+
 }
+
+/*=============== Bootstrap breakpoint for large screen size devices ===============*/
 
 @media screen and (min-width: 992px) {
 
-    /*=============== Header ===============*/
+    /*--------------- Header ---------------*/
 
     .nav-link.active::after {
         width: 100%;
@@ -193,11 +230,15 @@
         right: 0;
     }
 
-    /*=============== Homepage ===============*/
+    /*--------------- Homepage ---------------*/
 
     .hero-section {
         background-position: top right;
         background-size: 150%;
+    }
+
+    .hero-text > h1 {
+        text-align: left !important;
     }
 
     .hero-text {
