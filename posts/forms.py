@@ -32,6 +32,7 @@ class CommentForm(ModelForm):
         super(CommentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(form=self)
         self.fields['body'].label = False
+        self.fields['body'].widget.attrs['rows'] = 3
         self.fields['body'].widget.attrs.update({'class': 'input-comment'})
 
     class Meta:
