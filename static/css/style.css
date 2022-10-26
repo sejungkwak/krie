@@ -45,6 +45,20 @@
     margin: 1rem 0;
 }
 
+/*--------------- Profile page side nav ---------------*/
+
+.profile-nav {
+    padding: 12px;
+}
+
+.profile-nav .nav-link.active {
+    font-weight: 700;
+}
+
+.profile-nav .nav-link.active::after {
+    background-color: var(--blue-color);
+}
+
 /*=============== Footer ===============*/
 
 .footer-item {
@@ -102,6 +116,13 @@
 .btn-hover__blue:hover {
     border-color: var(--blue-color);
     background-color: var(--blue-color);
+    color: #fff;
+}
+
+.btn-fill__green,
+.btn-hover__green:hover {
+    border-color: var(--green-color);
+    background-color: var(--green-color);
     color: #fff;
 }
 

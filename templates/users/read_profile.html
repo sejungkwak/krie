@@ -24,6 +24,7 @@
                     <i class="fa-solid fa-gear fa-xl"></i>
                 </button>
                 <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'read_profile' pk=request.user.pk %}">{% trans "Activity" %}</a></li>
                     <li><a class="dropdown-item" href="{% url 'update_profile' pk=request.user.pk %}">{% trans "Edit profile" %}</a></li>
                     <li><a class="dropdown-item"
                             href="{% url 'account_change_password' %}">{% trans "Change password" %}</a></li>
@@ -34,14 +35,17 @@
     </div>
     <div class="row mt-1 mt-md-4 mt-lg-5">
         {% if request.user == profile.user %}
-        <aside class="col-2 d-none d-lg-block">
-            <ul class="d-flex flex-column gap-4 list-unstyled">
-                <li class=""><a class="text-decoration-none text-dark fs-6" href="{% url 'update_profile' pk=request.user.pk %}">{% trans "Edit profile" %}</a></li>
-                <li class=""><a class="text-decoration-none text-dark fs-6"
+        <nav class="navbar col-2 d-none d-lg-block">
+            <ul class="profile-nav navbar-nav flex-column gap-4">
+                <li class="nav-item"><a class="nav-link active"
+                    href="{% url 'read_profile' pk=request.user.pk %}">{% trans "Activity" %}</a>
+            </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'update_profile' pk=request.user.pk %}">{% trans "Edit profile" %}</a></li>
+                <li class="nav-item"><a class="nav-link"
                         href="{% url 'account_change_password' %}">{% trans "Change password" %}</a>
                 </li>
             </ul>
-        </aside>
+        </nav>
         <div class="col-1 vr p-1 me-5 d-none d-lg-block"></div>
         <div class="col-12 col-lg-9">
             {% else %}
@@ -49,13 +53,13 @@
                 {% endif %}
                 <div class="mb-4 mb-lg-5 btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" name="btnradio" id="btnPosts" autocomplete="off" checked>
-                    <label class="btn btn-outline-dark" for="btnPosts">{% trans "Posts" %}</label>
+                    <label class="btn btn-outline-primary" for="btnPosts">{% trans "Posts" %}</label>
 
                     <input type="radio" class="btn-check" name="btnradio" id="btnComments" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="btnComments">{% trans "Comments" %}</label>
+                    <label class="btn btn-outline-primary" for="btnComments">{% trans "Comments" %}</label>
 
                     <input type="radio" class="btn-check" name="btnradio" id="btnAbout" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="btnAbout">{% trans "About" %}</label>
+                    <label class="btn btn-outline-primary" for="btnAbout">{% trans "About" %}</label>
                 </div>
                 <article class="row">
                     <section class="profile-content pe-lg-0 active col-12" id="profilePosts">

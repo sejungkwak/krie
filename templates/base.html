@@ -69,26 +69,25 @@
                     {% csrf_token %}
                     <label class="d-flex input-group" for="search">
                         <input class="form-control" id="search" type="search" name="q" aria-label="Search"
-                            placeholder="Search" autocomplete="off" required>
+                            placeholder="Search posts" autocomplete="off" required>
                         <button class="btn btn-outline-secondary" type="submit"><i
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </label>
                 </form>
                 {% if user.is_authenticated %}
                 <div class="dropdown">
-                    <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-success btn-hover__green dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">{{ request.user.username }} </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'read_profile' pk=request.user.id %}">Your profile</a>
+                        <li><a class="dropdown-item" href="{% url 'read_profile' pk=request.user.id %}">{% trans "Your profile" %}</a>
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
                     </ul>
                 </div>
                 {% else %}
                 <li class="btn-group my-2">
-                    <a class="btn btn-outline-dark" href="{% url 'account_login' %}">Sign
-                        in</a>
-                    <a class="btn btn-dark" href="{% url 'account_signup' %}">Sign up</a>
+                    <a class="btn btn-outline-success btn-hover__green" href="{% url 'account_login' %}">{% trans "Sign in" %}</a>
+                    <a class="btn btn-success btn-fill__green" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a>
                 </li>
                 {% endif %}
             </div>
