@@ -5,21 +5,19 @@
 
 {% block content %}
 
-<main class="container flex-shrink-0">
-    <div class="row mt-3 mt-lg-5">
+<main class="container flex-shrink-0 mt-lg-5">
+    <div class="row mt-3 d-lg-none">
         <div class="col-12">
-            <p><a href="{% url 'post_list' category_slug=post.category.slug %}" aria-label="Back to the post list"><i
-                        class="fa-solid fa-arrow-left" aria-hidden="true"></i></a> {{ post.category }}
-            </p>
+            <p>{% trans "Topic: " %}{{ post.category }}</p>
         </div>
     </div>
     {% if user.id == post.author.id %}
-    <div class="row my-3 my-lg-4">
+    <div class="row mb-3">
         <div class="col-12">
             <li class="btn-group">
-                <a class="btn btn-sm btn-outline-secondary"
+                <a class="btn btn-sm btn-outline-secondary btn-hover__blue"
                     href="{% url 'update_post' category_slug=post.category.slug pk=post.id %}">{% trans "Edit" %}</a>
-                <a class="btn btn-sm btn-outline-secondary"
+                <a class="btn btn-sm btn-outline-secondary btn-hover__blue"
                     href="{% url 'delete_post' category_slug=post.category.slug pk=post.id %}">{% trans "Delete" %}</a>
             </li>
         </div>
