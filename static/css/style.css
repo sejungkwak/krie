@@ -97,6 +97,14 @@
     transform: translateY(-50%);
 }
 
+/*=============== Buttons ===============*/
+
+.btn-fill__blue {
+    border-color: var(--blue-color);
+    background-color: var(--blue-color);
+    color: #fff;
+}
+
 /*=============== Homepage ===============*/
 
 /*--------------- Hero section ---------------*/
@@ -133,6 +141,22 @@
 
 .card-img {
     opacity: .4;
+}
+
+/*=============== Category (post list) page ===============*/
+
+/*--------------- Pagination ---------------*/
+
+.pagination-sm > .active > .page-link {
+    border-color: var(--blue-color);
+    background-color: var(--blue-color);
+    color: #fff;
+}
+
+/*--------------- Horizontal rule ---------------*/
+
+.hr {
+    border: 3px solid;
 }
 
 /*=============== Create post page ===============*/
