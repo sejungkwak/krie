@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-4 col-lg-2 text-start text-lg-center">
                         <a class="fw-bold link-dark text-decoration-none"
-                            href="{% url 'read_profile' pk=post.author.id %}">{{ post.author }}</a>
+                            href="{% url 'read_profile_posts' pk=post.author.id %}">{{ post.author }}</a>
                     </div>
                     <div class="col-8 col-lg-1 text-start text-lg-center">
                         <strong>{{ post.updated_on | date:'d/m/Y' }}</strong>

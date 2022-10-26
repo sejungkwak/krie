@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-12">
             <small><a class="link-dark text-decoration-none"
-                    href="{% url 'read_profile' pk=post.author.id %}">{{ post.author }}</a> |
+                    href="{% url 'read_profile_posts' pk=post.author.id %}">{{ post.author }}</a> |
                 {{ post.updated_on | date:'d/m/Y H:i' }}</small>
         </div>
     </div>
@@ -90,7 +90,7 @@
     <div class="d-flex align-items-center">
         <div class="align-self-center">
             <small><a class="link-dark text-decoration-none"
-                    href="{% url 'read_profile' comment.author.id %}">{{ comment.author }}</a> |
+                    href="{% url 'read_profile_posts' pk=comment.author.id %}">{{ comment.author }}</a> |
                 {{ comment.updated_on | date:'d/m/Y H:i' }}</small>
         </div>
         {% if user.id == comment.author.id %}

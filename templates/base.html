@@ -70,8 +70,8 @@
                     <label class="d-flex input-group" for="search">
                         <input class="form-control" id="search" type="search" name="q" aria-label="Search"
                             placeholder="Search posts" autocomplete="off" required>
-                        <button class="btn btn-outline-secondary" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                        <button class="btn btn-outline-secondary btn-hover__green" type="submit" aria-label="Search"><i
+                                class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                     </label>
                 </form>
                 {% if user.is_authenticated %}
@@ -79,7 +79,7 @@
                     <button class="btn btn-outline-success btn-hover__green dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">{{ request.user.username }} </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'read_profile' pk=request.user.id %}">{% trans "Your profile" %}</a>
+                        <li><a class="dropdown-item" href="{% url 'read_profile_posts' pk=request.user.pk %}">{% trans "Your profile" %}</a>
                         </li>
                         <li><a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
                     </ul>
@@ -150,9 +150,6 @@
             }, 3000);
         })
     </script>
-
-    {% block script %}
-    {% endblock %}
 
 </body>
 
