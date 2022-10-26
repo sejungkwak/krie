@@ -177,6 +177,13 @@
 
 /*=============== Category (post list) page ===============*/
 
+/*--------------- Post list ---------------*/
+
+.hover-underline:hover {
+    text-decoration: underline var(--blue-color) 3px !important;
+    text-underline-offset: .5rem;
+}
+
 /*--------------- Pagination ---------------*/
 
 .pagination-sm > .active > .page-link {
