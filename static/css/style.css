@@ -109,6 +109,13 @@
     background-color: #fff;
 }
 
+/*--------------- Post like buttons ---------------*/
+
+.heart-fill,
+.heart-outline {
+    color: var(--blue-color);
+}
+
 /*=============== Homepage ===============*/
 
 /*--------------- Hero section ---------------*/
