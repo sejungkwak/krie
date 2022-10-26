@@ -8,8 +8,8 @@
 <main class="container flex-shrink-0">
     <div class="row mt-3 mt-lg-5">
         <div class="col-12">
-            <p><a href="{% url 'post_list' category_slug=post.category.slug %}"><i
-                        class="fa-solid fa-arrow-left"></i></a> {{ post.category }}
+            <p><a href="{% url 'post_list' category_slug=post.category.slug %}" aria-label="Go back"><i
+                        class="fa-solid fa-arrow-left" aria-hidden="true"></i></a> {{ post.category }}
             </p>
         </div>
     </div>
@@ -17,9 +17,9 @@
     <div class="row my-3 my-lg-4">
         <div class="col-12">
             <li class="btn-group">
-                <a class="btn btn-sm btn-outline-dark"
+                <a class="btn btn-sm btn-outline-secondary"
                     href="{% url 'update_post' category_slug=post.category.slug pk=post.id %}">{% trans "Edit" %}</a>
-                <a class="btn btn-sm btn-outline-dark"
+                <a class="btn btn-sm btn-outline-secondary"
                     href="{% url 'delete_post' category_slug=post.category.slug pk=post.id %}">{% trans "Delete" %}</a>
             </li>
         </div>
@@ -75,11 +75,11 @@
             {% csrf_token %}
             {{ comment_form | crispy }}
             {% if new_comment %}
-            <button class="btn btn-dark position-absolute position-end" type="submit">{% trans "Add" %}</button>
+            <button class="btn btn-primary btn-fill__blue position-absolute position-end" type="submit">{% trans "Add" %}</button>
             {% else %}
-            <li class="btn-group position-absolute position-end">
-                <button class="btn btn-dark" type="submit">{% trans "Edit" %}</button>
-                <a class="btn btn-outline-dark" href="{{ request.META.HTTP_REFERER }}">{% trans "Cancel" %}</a>
+            <li class="btn-group btn-group-sm position-absolute position-end">
+                <button class="btn btn-primary btn-fill__blue" type="submit">{% trans "Edit" %}</button>
+                <a class="btn btn-outline-secondary btn-fill__white" href="{{ request.META.HTTP_REFERER }}">{% trans "Cancel" %}</a>
             </li>
             {% endif %}
         </form>
@@ -95,9 +95,9 @@
         {% if user.id == comment.author.id %}
         <div class="ms-auto">
             <li class="btn-group">
-                <a class="btn btn-sm btn-outline-dark"
+                <a class="btn btn-sm btn-outline-secondary btn-hover__blue"
                     href="{% url 'update_comment' category_slug=post.category.slug post_id=post.id pk=comment.pk %}">{% trans "Edit" %}</a>
-                <a class="btn btn-sm btn-outline-dark"
+                <a class="btn btn-sm btn-outline-secondary btn-hover__blue"
                     href="{% url 'delete_comment' category_slug=post.category.slug post_id=post.id pk=comment.pk %}">{% trans "Delete" %}</a>
             </li>
         </div>

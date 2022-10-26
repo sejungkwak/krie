@@ -66,7 +66,7 @@
     fill: var(--bs-gray-600);
 }
 
-/*=============== Form ===============*/
+/*=============== Forms ===============*/
 
 .controls,
 .textinput,
@@ -92,17 +92,21 @@
 }
 
 .position-end {
-    right: 1rem;
-    top: 41%;
-    transform: translateY(-50%);
+    right: .8rem;
+    bottom: 100%;
 }
 
 /*=============== Buttons ===============*/
 
-.btn-fill__blue {
+.btn-fill__blue,
+.btn-hover__blue:hover {
     border-color: var(--blue-color);
     background-color: var(--blue-color);
     color: #fff;
+}
+
+.btn-fill__white {
+    background-color: #fff;
 }
 
 /*=============== Homepage ===============*/
@@ -172,10 +176,6 @@
 
 #div_id_category>.controls {
     margin: unset;
-}
-
-.input-comment {
-    padding-right: 4rem;
 }
 
 .asteriskField {
