@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views import View
@@ -35,13 +37,14 @@ class PostListView(ListView):
         return context
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     Create a post.
     """
     model = Post
     template_name = 'posts/create_post.html'
     form_class = PostForm
+    success_message = 'Your post has been successfully saved.'
 
     def get_initial(self, **kwargs):
         """
@@ -116,6 +119,7 @@ class PostDetailView(View):
         id = self.kwargs.get('post_id')
         post = get_object_or_404(Post, pk=id)
         comment_form = CommentForm(data=request.POST)
+        messages.success(request, 'Your comment has been successfully saved.')
 
         if comment_form.is_valid():
             comment_form.instance.author = request.user
@@ -128,13 +132,14 @@ class PostDetailView(View):
         return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
 
 
-class PostUpdateView(UserPassesTestMixin, UpdateView):
+class PostUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     """
     Edit a post.
     """
     model = Post
     template_name = 'posts/create_post.html'
     form_class = PostForm
+    success_message = 'Your post has been successfully updated.'
 
     def test_func(self):
         """
@@ -172,6 +177,7 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
         Delete the requested post from the database.
         """
         object = self.get_object()
+        messages.success(request, 'Your post has been successfully deleted.')
         return super().delete(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -183,13 +189,14 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
                 'category_slug': self.object.category.slug})
 
 
-class CommentUpdateView(UserPassesTestMixin, UpdateView):
+class CommentUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     """
     Edit a comment.
     """
     model = Comment
     form_class = CommentForm
     template_name = 'posts/read_post.html'
+    success_message = 'Your comment has been successfully updated.'
 
     def test_func(self):
         """
@@ -252,6 +259,7 @@ class CommentDeleteView(UserPassesTestMixin, DeleteView):
         Delete a comment from the database.
         """
         object = self.get_object()
+        messages.success(request, 'Your comment has been successfully deleted.')
         return super().delete(request, *args, **kwargs)
 
     def get_success_url(self):
