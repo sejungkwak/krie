@@ -58,7 +58,7 @@ class Comment(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='comments')
-    body = models.CharField(max_length=255)
+    body = models.TextField(max_length=255)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
