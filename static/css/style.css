@@ -178,7 +178,10 @@
 .card-img {
     width: 100%;
     height: auto;
-    opacity: .4;
+}
+
+.card-img-overlay {
+    background-color: rgba(0, 0, 0, .4);
 }
 
 /*=============== Category (post list) page ===============*/
