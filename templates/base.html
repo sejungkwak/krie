@@ -32,35 +32,35 @@
 <body class="d-flex flex-column vh-100">
 
     {% comment %} Navigation {% endcomment %}
-    <nav class="navbar sticky-top bg-white navbar-expand-lg flex-shrink-0">
+    <nav class="navbar sticky-top navbar-light bg-white navbar-expand-lg flex-shrink-0">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img class="logo w-100" src="https://res.cloudinary.com/sejung-cloud/image/upload/v1665591195/static/img/logo.3f7a2098fbb4.png"
                     alt="K in red, R in blue, I in green, E in gold">
             </a>
-            <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-items"
-                aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="nav-items">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mt-4 mb-2 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5 {% if '/rooms/' in request.path %}active{% endif %}"
+                        <a class="nav-link fw-bold fs-5 {% if '/rooms/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='rooms' %}">{% trans "Rooms" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5 {% if '/jobs/' in request.path %}active{% endif %}" href="{% url 'post_list' category_slug='jobs' %}">{% trans "Jobs" %}</a>
+                        <a class="nav-link fw-bold fs-5 {% if '/jobs/' in request.path %}active{% endif %}" href="{% url 'post_list' category_slug='jobs' %}">{% trans "Jobs" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5 {% if '/visas/' in request.path %}active{% endif %}"
+                        <a class="nav-link fw-bold fs-5 {% if '/visas/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='visas' %}">{% trans "Visas" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5 {% if '/market/' in request.path %}active{% endif %}"
+                        <a class="nav-link fw-bold fs-5 {% if '/market/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='market' %}">{% trans "Market" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold fs-5 {% if '/random/' in request.path %}active{% endif %}"
+                        <a class="nav-link fw-bold fs-5 {% if '/random/' in request.path %}active{% endif %}"
                             href="{% url 'post_list' category_slug='random' %}">{% trans "Random" %}</a>
                     </li>
                 </ul>
@@ -108,8 +108,8 @@
     <footer class="container border-top mt-auto">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center my-4">
             <ul class="nav col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start list-unstyled mb-3 mb-md-0">
-                <li class="d-flex align-items-center me-3"><a class="link-secondary text-decoration-none" href="{% url 'terms_conditions' %}">{% trans "Terms and Conditions" %}</a></li>
-                <li class="d-flex align-items-center me-3"><a class="link-secondary text-decoration-none" href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                <li class="d-flex align-items-center me-3"><a class="link-secondary text-decoration-none" href="{% url 'terms_conditions' %}" target="_blank">{% trans "Terms and Conditions" %}</a></li>
+                <li class="d-flex align-items-center me-3"><a class="link-secondary text-decoration-none" href="{% url 'privacy_policy' %}" target="_blank">{% trans "Privacy Policy" %}</a></li>
             </ul>
             <ul class="nav col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-end list-unstyled">
                 <li class="ms-md-3 text-muted">{% trans "Created by Sejung Kwak" %}</li>
