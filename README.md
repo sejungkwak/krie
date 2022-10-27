@@ -2,6 +2,8 @@
 
 _KRIE_ is a website for Korean people living in Ireland to share information about visas, accomodation, work and so on. All the users can view the posts and comments without registration and the registered users can write posts and comments.
 
+![Multi device website mockup](documentation/responsive.png)
+
 __Note__: The site is for educational purposes only and written in English.
 
 <br>
@@ -19,6 +21,11 @@ __Note__: The site is for educational purposes only and written in English.
 
 [Technical Design](#technical-design)
 - [Data Model](#data-model)
+
+[Technologies Used](#technologies-used)
+- [Languages](#languages)
+- [Framework](#framework)
+- [Programs](#programs)
 
 <br>
 
@@ -75,6 +82,8 @@ To provide a platform where a user can easily find information and interact with
     - [#21](https://github.com/sejungkwak/krie/issues/21) I want to sign in and sign out of my account with my credentials so that I can keep my account secure.
     - [#22](https://github.com/sejungkwak/krie/issues/22) I want to update my password so that I can keep my account secure.
     - [#23](https://github.com/sejungkwak/krie/issues/23) I want to reset my password so that I can access my account even if I forget it.
+    - [#35](https://github.com/sejungkwak/krie/issues/35) I want to update my profile so that I can keep my information up to date.
+    - [#36](https://github.com/sejungkwak/krie/issues/36) I want to get feedback so that I can ensure that I have interacted with the website correctly.
 
 <br>
 
@@ -92,7 +101,14 @@ To provide a platform where a user can easily find information and interact with
 
     The colour scheme has been created based on the Korean and Irish flags. The chosen colours were selected using [_Canva_](https://www.canva.com/).
 
+    <details>
+    <summary>View the colour scheme</summary>
+
     ![Colour Scheme](documentation/colour-scheme.png)
+
+    </details>
+
+<br>
 
 - Typography
 
@@ -155,9 +171,9 @@ To provide a platform where a user can easily find information and interact with
     <img src="documentation/wireframes/search.png">
 </details>
 
-<br>
-
 [Back To **Table of Contents**](#table-of-contents)
+
+<br>
 
 # Technical Design
 
@@ -167,6 +183,46 @@ To provide a platform where a user can easily find information and interact with
 
     ![ER Diagram](documentation/data-model.png)
 
+[Back To **Table of Contents**](#table-of-contents)
+
 <br>
 
+# Technologies Used
+
+## Languages
+
+- [Python](https://www.python.org/) was used as the main scripting language.
+    - The list of third-party packages can be found [here: requirements.txt](requirements.txt).
+- [HTML](https://en.wikipedia.org/wiki/HTML) was used to present and structure content.
+- [CSS](https://en.wikipedia.org/wiki/CSS) was used to style content.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) was used to automatically close the alerts.
+
+## Framework
+
+- [Django](https://www.djangoproject.com/) was used as the main Python framework.
+- [Bootstrap](https://getbootstrap.com/) was heavily used for styling.
+
+## Programs
+
+- [Adobe Express](https://www.adobe.com/express/feature/image/resize) was used to resize the landing page photos.
+- [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
+- [Canva](https://www.canva.com/en_gb/) was used to design the logo, favicon and hero section images.
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to view the site's styling, debug during development and check runtime performance.
+- [Diagrams.net](https://app.diagrams.net/) was used to create the ERD.
+- [Eightshapes](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23DB2A37%0D%0A%230C51AB%0D%0A%23000%0D%0A%2356AA35%0D%0A%23FFF%0D%0A%23F57B23&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18) was used to check the colour combination for accessibility purposes.
+- [Favicon.io](https://favicon.io/) was used to create the favicon.
+- [Font Awesome](https://fontawesome.com/) was used for the icons.
+- [Git](https://git-scm.com/) was used for version control.
+- [GitHub](https://github.com/) was used to store and deploy the project's code.
+- [Gitpod](https://www.gitpod.io/) was used to develop and test my code.
+- [Google Fonts](https://fonts.google.com/) was used to import Gothic A1 into the style.css file.
+- [Grammarly](https://www.grammarly.com/) was used to check for errors in the README.
+- [Pixlr](https://pixlr.com/) was used to change the hero section image colours.
+- [Privacy Policy Generator](https://www.privacypolicygenerator.info/) was used to create the site's privacy policy.
+- [Techsini](https://techsini.com/multi-mockup/index.php) was used to create the image showing a responsive design for the README.
+- [Terms and Conditions Generator](https://www.termsandconditionsgenerator.com/) was used to create the site's terms and conditions.
+- [Visual Studio Code](https://code.visualstudio.com/) was used to edit my code and create SVG paths from SVG image files.
+
 [Back To **Table of Contents**](#table-of-contents)
+
+<br>
