@@ -24,6 +24,10 @@ __Note__: The site is for educational purposes only and written in English.
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Models](#models)
 
+[Agile methodology](#agile-methodology)
+- [MoSCoW method and story points](#moscow-method-and-story-points)
+- [Iterations](#iterations)
+
 [Technologies Used](#technologies-used)
 - [Languages](#languages)
 - [Framework](#framework)
@@ -286,6 +290,116 @@ To provide a platform where a user can easily find information and interact with
         def __str__(self):
             return self.body
         ```
+
+[Back To **Table of Contents**](#table-of-contents)
+
+<br>
+
+# Agile methodology
+
+## MoSCoW method and story points
+
+_Github_ Projects kanban board and Issues were used to practise agile methodology. After creating the user stories, I prioritised each story using MoSCoW method, excluded ‘won’t have’ stories and set the points using modified Fibonacci sequence(1, 2, 3, 5, 8, 13, 20) based on complexity, amount of work and repetition.
+The details are as following:
+
+### Theme: Website appearance
+- Epic: Intuitive website
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#1](https://github.com/sejungkwak/krie/issues/1) | As a first-time visitor, I want to know what this site is about immediately so that I can decide whether I will explore further. | Must have | 2 |
+    | [#2](https://github.com/sejungkwak/krie/issues/2) | As a first-time visitor, I want to navigate pages so that I can understand what types of information I could find here. | Must have | 1 |
+
+### Theme: Authentication
+- Epic: Sign up
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#7](https://github.com/sejungkwak/krie/issues/7) | As an unregistered user, I want to sign up so that I can write posts, comment and give a like to other users' posts. | Must have | 8 |
+
+- Epic: Sign in and sign out
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#21](https://github.com/sejungkwak/krie/issues/21) | As a registered user, I want to sign in and sign out of my account with my credentials so that I can keep my account secure. | Must have | 3 |
+
+- Epic: Reset password
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#22](https://github.com/sejungkwak/krie/issues/22) | As a registered user, I want to update my password so that I can keep my account secure. | Could have | 8 |
+    | [#23](https://github.com/sejungkwak/krie/issues/23) | As a registered user, I want to reset my password so that I can access my account even if I forget it. | Should have | 13 |
+
+### Theme: CRUD
+- Epic: Post CRUD
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#3](https://github.com/sejungkwak/krie/issues/3) | As an unregistered user, I want to view a list of posts' titles so that I can choose which one to read. | Must have | 5 |
+    | [#9](https://github.com/sejungkwak/krie/issues/9) | As a registered user, I want to create a post to ask about others' recent experiences with the immigration office so that I can prepare for my upcoming appointment. | Must have | 5 |
+    | [#16](https://github.com/sejungkwak/krie/issues/16) | As a registered user, I want to edit my post so that I can correct any mistakes or update other users with new information. | Should have | 8 |
+    | [#17](https://github.com/sejungkwak/krie/issues/17) | As a registered user, I want to delete my post if no one answers my question so that I can maintain a clean profile. | Should have | 5 |
+
+- Epic: Comment CRUD
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#11](https://github.com/sejungkwak/krie/issues/11) | As a registered user, I want to leave comments on a post so that I can be involved in the conversation. | Must have | 5 |
+    | [#5](https://github.com/sejungkwak/krie/issues/5) | As an unregistered user, I want to view comments on an individual post so that I can read the conversation. | Must have | 3 |
+
+- Epic: Likes
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#14](https://github.com/sejungkwak/krie/issues/14) | As a registered user, I want to give a like to a post so that I can highlight useful content for other users. | Could have | 3 |
+    | [#15](https://github.com/sejungkwak/krie/issues/15) | As a registered user, I want to remove a like from a post so that I can ensure that I only give it to the content I feel is useful. | Could have | 3 |
+
+- Epic: Search
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    |[#6](https://github.com/sejungkwak/krie/issues/6) | As an unregistered user, I want to search information with keywords so that I can easily find information that is useful and relevant to me. | Could have | 20 |
+
+- Epic: Profile
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#18](https://github.com/sejungkwak/krie/issues/18) | As a registered user, I want to see another user's posts and comments by clicking the username so that I can decide if the user is trustworthy. | Could have | 13 |
+
+### Theme: Superuser
+
+- Epic: Maintain the site 
+
+    | Issue # | User Story | Prioritisation | Points |
+    | :-----------: | :---------: | :-----------: | :-----------: |
+    | [#26](https://github.com/sejungkwak/krie/issues/26) | As a superuser, I want to delete content when inappropriate so that I can maintain the site and ensure that only useful or relevant content remains. | Should have | 1 |
+    | [#27](https://github.com/sejungkwak/krie/issues/27) | As a superuser, I want to ban scammers'/spammers' accounts so that I can ensure only trusted users can access the site. | Should have | 2 |
+
+## Iterations
+
+The project was carried out over 5 iterations between the 11th of October and the 25th of October and each iteration lasted 3 days due to the tight schedule. The velocity is 23.6 points.
+
+- Iteration 1 (Closed points 11 / Planned points 24)
+
+    ![Iteration 1](documentation/agile/agile_iter1.png)
+
+- Iteration 2 (Closed points 24 / Planned points 24)
+
+    ![Iteration 2](documentation/agile/agile_iter2.png)
+
+- Iteration 3 (Closed points 34 / Planned points 34)
+
+    ![Iteration 3](documentation/agile/agile_iter3.png)
+
+- Iteration 4 (Closed points 23 / Planned points 25)
+
+    ![Iteration 4](documentation/agile/agile_iter4.png)
+
+- Iteration 5 (Closed points 26 / Planned points 26)
+
+    ![Iteration 5](documentation/agile/agile_iter5.png)
+
+The details can be found [here](https://github.com/sejungkwak/krie/milestones?direction=desc&sort=title&state=closed).
 
 [Back To **Table of Contents**](#table-of-contents)
 
