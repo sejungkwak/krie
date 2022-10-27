@@ -19,8 +19,10 @@ __Note__: The site is for educational purposes only and written in English.
 - [Design](#design)
 - [Wireframes](#wireframes)
 
-[Technical Design](#technical-design)
-- [Data Model](#data-model)
+[Database Model](#database-model)
+- [Database](#database)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Models](#models)
 
 [Technologies Used](#technologies-used)
 - [Languages](#languages)
@@ -175,13 +177,115 @@ To provide a platform where a user can easily find information and interact with
 
 <br>
 
-# Technical Design
+# Database Model
 
-## Data Model
+## Database
 
-- Entity Relationship Diagram
+[_Heroku_ PostgreSQL](https://devcenter.heroku.com/categories/heroku-postgres) was used for the main database from the earliest stage of development.
 
-    ![ER Diagram](documentation/data-model.png)
+## Entity Relationship Diagram
+
+![ER Diagram](documentation/data-model.png)
+
+## Models
+
+- User/Profile table
+
+    Profile model inherits the Django-allauth's user model containing the username, email address and password. I expanded it with the location and bio which are optional. The Django signals were used to create a profile for the newly registered user.
+
+    | Field Name | Type | Arguments |
+    | :--------: | :--: | :-------: |
+    | id | BigAutoField | primary_key=True |
+    | user | OneToOneField(User) | null=True, on_delete=models.CASCADE |
+    | location | CharField | max_length=20, blank=True, null=True |
+    | bio | CharField | max_length=200, blank=True, null=True |
+
+    - Methods
+
+        ```
+        def __str__(self):
+            return self.user.username
+        ```
+
+- Category table
+
+    The slug field was added for the URL paths as it gives users more information than an id.
+
+    | Field Name | Type | Arguments |
+    | :--------: | :--: | :-------: |
+    | slug | SlugField | max_length=15, unique=True |
+    | name | CharField | max_length=15, unique=True |
+
+    - Metadata
+
+        ```
+        class Meta:
+            verbose_name_plural = 'Categories'
+        ```
+
+    - Methods
+
+        ```
+        def __str__(self):
+            return self.name
+        ```
+
+- Post table
+
+    | Field Name | Type | Arguments |
+    | :--------: | :--: | :-------: |
+    | id | BigAutoField | primary_key=True |
+    | author | ForeignKey(User) | on_delete=models.CASCADE, related_name='posts' |
+    | category | ForeignKey(Category) | on_delete=models.CASCADE, related_name='posts' |
+    | title | CharField | max_length=200, unique=True |
+    | body | TextField | verbose_name='Text' |
+    | created_on | DateTimeField | auto_now_add=True |
+    | updated_on | DateTimeField | auto_now=True |
+    | likes | ManyToManyField(User) | related_name='post_likes', blank=True |
+
+    - Metadata
+
+        ```
+        class Meta:
+            ordering = ['-created_on']
+        ```
+
+    - Methods
+
+        ```
+        def __str__(self):
+            return self.title
+
+        def number_of_likes(self):
+            return self.likes.count()
+
+        def number_of_comments(self):
+            return self.comments.count()
+        ```
+
+- Comment table
+
+    | Field Name | Type | Arguments |
+    | :--------: | :--: | :-------: |
+    | original_post | ForeignKey(Post) | on_delete=models.CASCADE, related_name='comments' |
+    | author | ForeignKey(User) | on_delete=models.CASCADE, related_name='comments' |
+    | body | TextField | max_length=255 |
+    | created_on | DateTimeField | auto_now_add=True |
+    | updated_on | DateTimeField | auto_now=True |
+
+    - Metadata
+
+        ```
+        class Meta:
+            ordering = ['-created_on']
+        ```
+
+    - Methods
+
+        ```
+        def __str__(self):
+            return self.body
+        ```
 
 [Back To **Table of Contents**](#table-of-contents)
 
@@ -208,6 +312,7 @@ To provide a platform where a user can easily find information and interact with
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
 - [Canva](https://www.canva.com/en_gb/) was used to design the logo, favicon and hero section images.
 - [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to view the site's styling, debug during development and check runtime performance.
+- [Cloudinary](https://cloudinary.com/) was used to store static files.
 - [Diagrams.net](https://app.diagrams.net/) was used to create the ERD.
 - [Eightshapes](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23DB2A37%0D%0A%230C51AB%0D%0A%23000%0D%0A%2356AA35%0D%0A%23FFF%0D%0A%23F57B23&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18) was used to check the colour combination for accessibility purposes.
 - [Favicon.io](https://favicon.io/) was used to create the favicon.
@@ -217,6 +322,7 @@ To provide a platform where a user can easily find information and interact with
 - [Gitpod](https://www.gitpod.io/) was used to develop and test my code.
 - [Google Fonts](https://fonts.google.com/) was used to import Gothic A1 into the style.css file.
 - [Grammarly](https://www.grammarly.com/) was used to check for errors in the README.
+- [Heroku](https://heroku.com/) was used to deploy the project.
 - [Pixlr](https://pixlr.com/) was used to change the hero section image colours.
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/) was used to create the site's privacy policy.
 - [Techsini](https://techsini.com/multi-mockup/index.php) was used to create the image showing a responsive design for the README.
