@@ -74,6 +74,20 @@ ACCOUNT_ADAPTER = 'krie.adapter.UsernameMaxAdapter'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+EMAIL_TIMEOUT = 5
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'no-reply@krie.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 MESSAGE_TAGS = {
