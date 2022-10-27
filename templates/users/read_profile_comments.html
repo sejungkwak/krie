@@ -35,7 +35,7 @@
     </header>
     <div class="row mt-1 mt-md-4 mt-lg-5">
         {% if request.user == profile.user %}
-        <nav class="navbar col-2 d-none d-lg-block">
+        <nav class="navbar navbar-light col-2 d-none d-lg-block">
             <ul class="profile-nav navbar-nav flex-column gap-4">
                 <li class="nav-item"><a class="nav-link active"
                     href="{% url 'read_profile_posts' pk=request.user.pk %}">{% trans "Activity" %}</a>
