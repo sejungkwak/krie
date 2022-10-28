@@ -4,17 +4,22 @@
 
 {% block content %}
 <main class="container flex-shrink-0 my-3 my-lg-5 py-5">
-    <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="my-5">{% trans "Sign Out" %}</h1>
-        <p>{% trans 'Are you sure you want to sign out?' %}</p>
-        <form method="post" action="{% url 'account_logout' %}">
+    <section class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="my-5">{% trans "Sign Out" %}</h1>
+            <p class="my-5">{% trans 'Are you sure you want to sign out?' %}</p>
+        </div>
+        <form class="col-md-8 offset-md-2" method="post" action="{% url 'account_logout' %}">
             {% csrf_token %}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <button class="btn w-100 btn-primary btn-fill__blue" type="submit">{% trans 'Sign Out' %}</button>
+            <div class="d-flex justify-content-center gap-4">
+                <button class="btn btn-lg btn-primary btn-fill__blue" type="submit">{% trans 'Sign Out' %}</button>
+                <a class="btn btn-lg btn-outline-primary btn-hover__blue" href="{{ request.META.HTTP_REFERER }}">{% trans 'Cancel' %}</a>
+            </div>
         </form>
-    </div>
+    </section>
 </main>
 
 {% endblock %}
