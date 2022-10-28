@@ -72,7 +72,7 @@
             {% csrf_token %}
             {{ comment_form | crispy }}
             {% if new_comment %}
-            <button class="btn btn-primary btn-fill__blue position-absolute position-end" type="submit">{% trans "Add" %}</button>
+            <button class="btn btn-primary btn-fill__blue position-absolute position-end" type="submit">{% trans "Add comment" %}</button>
             {% else %}
             <li class="btn-group btn-group-sm position-absolute position-end">
                 <button class="btn btn-primary btn-fill__blue" type="submit">{% trans "Edit" %}</button>

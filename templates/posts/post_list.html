@@ -13,7 +13,7 @@
         {% if user.is_authenticated %}
         <div>
             {% with request.path|slice:"7:-1" as param %}
-            <a class="btn btn-primary btn-fill__blue" href="{% url 'create_post' category_slug=param %}">{% trans "Add a post" %}</a>
+            <a class="btn btn-primary btn-fill__blue" href="{% url 'create_post' category_slug=param %}">{% trans "Create post" %}</a>
             {% endwith %}
         </div>
         {% endif %}
