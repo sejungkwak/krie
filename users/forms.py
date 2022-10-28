@@ -58,6 +58,17 @@ class UserUpdateForm(forms.ModelForm):
             'username': forms.TextInput(),
             'email': forms.EmailInput()}
 
+    def clean(self):
+        """
+        Check if the email address is already in use.
+        """
+        super().clean()
+        email = self.cleaned_data.get('email')
+
+        if email and User.objects.filter(email=email).count() > 1:
+            raise forms.ValidationError(f'{email} is already in use.')
+        return self.cleaned_data
+
 
 class ProfileUpdateForm(forms.ModelForm):
     """

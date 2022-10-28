@@ -127,10 +127,8 @@ class ProfileUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
             messages.success(
                 request, 'Your profile has been successfully updated.')
         else:
-            messages.error(
-                request,
-                user_form.errors.get('username').as_text()[
-                    1:])
+            get_error_text = user_form.errors.as_text().split('*')[-1]
+            messages.error(request, get_error_text)
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
