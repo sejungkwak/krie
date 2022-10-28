@@ -4,6 +4,8 @@ _KRIE_ is a website for Korean people living in Ireland to share information abo
 
 ![Multi device website mockup](documentation/responsive.png)
 
+### View the live project [here](https://krie.herokuapp.com/)
+
 __Note__: The site is for educational purposes only and written in English.
 
 <br>
@@ -27,6 +29,10 @@ __Note__: The site is for educational purposes only and written in English.
 [Agile methodology](#agile-methodology)
 - [MoSCoW method and story points](#moscow-method-and-story-points)
 - [Iterations](#iterations)
+
+[Features](#features)
+- [Implemented Features](#implemented-features)
+- [Features Left to Implement](#features-left-to-implement)
 
 [Technologies Used](#technologies-used)
 - [Languages](#languages)
@@ -299,7 +305,7 @@ To provide a platform where a user can easily find information and interact with
 
 ## MoSCoW method and story points
 
-_Github_ Projects kanban board and Issues were used to practise agile methodology. After creating the user stories, I prioritised each story using MoSCoW method, excluded ‘won’t have’ stories and set the points using modified Fibonacci sequence(1, 2, 3, 5, 8, 13, 20) based on complexity, amount of work and repetition.
+_Github_ Projects kanban board and Issues were used to practise agile methodology. After creating the user stories, I prioritised each story using MoSCoW method, excluded ‘won't have' stories and set the points using modified Fibonacci sequence(1, 2, 3, 5, 8, 13, 20) based on complexity, amount of work and repetition.
 The details are as following:
 
 ### Theme: Website appearance
@@ -405,15 +411,266 @@ The details can be found [here](https://github.com/sejungkwak/krie/milestones?di
 
 <br>
 
+# Features
+
+## Implemented Features
+
+The site features a fully responsive design and contains 5 category pages(__Rooms__, __Jobs__, __Visas__, __Market__, __Random__), 1 post detail page, 3 profile pages(__Activity__, __Edit profile__, __Change password__), 4 authentication pages(__Sign up__, __Sign in__, __Sign out__, __Reset password__), 1 search results page and 2 supporting pages(__Terms and Conditions__, __Privacy Policy__). The header and footer are identical for all pages.
+
+### Header
+
+![Header](documentation/features/header.png)
+
+- All the header items are available to both unregistered and registered users.
+- The header is fixed to the top of the screen even when the user is scrolling down the page to allow easier navigation.
+- The logo is linked to the Homepage and each menu item is linked to each category page respectively to allow easier navigation.
+- The navigation menu item for the current page is underlined as the user browses the site for ease of use.
+
+    <details>
+    <summary>Highlighted navigation menu</summary>
+
+    ![Highlighted navigation menu](documentation/features/header_nav.png)
+
+    </details>
+
+- The navigation menu collapses on small/medium devices less than 992px width to optimise the menu for smaller screen sizes.
+
+    <details>
+    <summary>Navigation menu on mobile devices</summary>
+
+    ![Navigation menu on mobile devices](documentation/features/header-mobil.png)
+
+    </details>
+
+- The search bar allows users to easily search for a keyword they are looking for.
+- The sign in and sign up buttons are available if not authenticated. Once a user is authenticated, the button changes to their username with a dropdown menu for their profile page and sign out button.
+
+### Footer
+
+![Footer](documentation/features/footer.png)
+
+- All the footer items are available to both unregistered and registered users.
+- The footer includes links for the following two parts: One is the user notice(Terms and conditions, Privacy policy) and the other one is the contact methods for the developer(_Github_ repository, _LinkedIn_ profile, Email).
+- Links to the Terms and conditions and Privacy policy allow the users to conveniently review their rights and the site's regulations.
+- The links open in a new tab to allow the user to return to _Krie_ more easily.
+
+### Homepage
+
+![Homepage](documentation/features/home.png)
+
+- The hero section allows the users to easily understand the purpose of the site.
+- The __Sign up to post__ button is visible only to the users who haven't signed in/up.
+- The image, title and subtitle for each topic add more context for first-time users to ensure they understand the purpose of each topic and post in the most relevant topic forum for their discussion.
+
+### Category page(__Rooms__, __Jobs__, __Visas__, __Market__, __Random__)
+
+![Category page](documentation/features/category.png)
+
+- Both unregistered and registered users can view this page and click the post title.
+- The __Create post__ button is only visible to the users who have signed in.
+- Only signed in users can click the username(post owner) to review their activities and information.
+- The page displays a list of posts for the specified category with the post title, owner, date and number of comments and likes. This allows users to easily select a post to read.
+- Less than 992px width devices show post information on two rows to optimise the layout.
+
+    <details>
+    <summary>Category page on mobile devices</summary>
+
+    ![Category page on mobile devices](documentation/features/category-mobile.png)
+
+    </details>
+
+- The pagination allows a maximum of 10 posts per page. The paginator helps users to navigate pages more easily.
+
+### Post detail page
+
+![Post detail page](documentation/features/post_details.png)
+
+- Both unregistered and registered users can view this page.
+- Only signed in users can give or remove a like and leave a comment.
+- The __Edit/Delete__ button is visible only to the owner of the post. A 403 Forbidden error occurs if an unauthorised user tries to edit/delete it via URL.
+- The comment text box is available to signed in users and only the owner of the comment can edit/delete it.
+
+    <details>
+    <summary>Editing a comment</summary>
+
+    ![Edit comment](documentation/features/post_details_edit_comment.png)
+
+    </details>
+
+### Post create page
+
+![Post create page](documentation/features/post_create.png)
+
+- Only logged in users can create posts.
+- The form provides a widget where users can upload images and style content.
+
+### Profile page
+
+- This page is available to a signed in user to edit their own profile and to look up other users.
+- When viewing another user's profile, the page displays the specified user's username and activity.
+
+    ![Profile page](documentation/features/profile_otheruser.png)
+
+- When viewing their own profile, the page displays their username and three menu items: __Activity__, __Edit profile__ and __Change password__.
+
+    ![Posts](documentation/features/profile_activity_posts.png)
+
+- The menu collapses and the layout changes on small/medium devices less than 992px width to optimise the screen size.
+
+    ![Profile page on mobile devices](documentation/features/profile-mobile.png)
+
+- Activity
+
+    - This tab contains three items: __Posts__, __Comments__ and __About__.
+    - The signed in users can view this information to help determine other users' reliability.
+    - __Posts__ tab
+
+        ![Posts](documentation/features/profile_activity_posts.png)
+
+        It displays a list of posts - title, date, number of comments and likes, and the paginator if the user has more than 10 posts. Users can view the post details by clicking on the title.
+
+    - __Comments__ tab
+
+        ![Comments](documentation/features/profile_activity_comments.png)
+
+        It displays the comment, date and the original post on a page and shows the paginator if the user has more than 6 comments. Users can view the original post details by clicking on the title.
+
+    - __About__ tab
+
+        ![About](documentation/features/profile_activity_about.png)
+
+        It displays the user's location and description.
+
+- Edit profile
+
+    ![Edit profile](documentation/features/profile_edit.png)
+
+    - This option lets the user edit their username, email address, location and about.
+    - Users can leave the location and the about section empty if they would not like to share the information.
+
+- Change password
+
+    ![Change password](documentation/features/profile_pwchange.png)
+
+    - A user can change their password on this page by providing their current password.
+
+### Authentication pages
+
+Django-allauth was used for authentication pages.
+
+- Sign up page
+
+    ![Sign up page](documentation/features/auth_signup_step1.png)
+
+    - A username, email address and password are needed to sign up for the site.
+    - Users must verify their email addresses to sign in to the site. This ensures the user provides their actual email address which can later be used to reset their password if required.
+    - Relevant feedback is given for the invalid user input.
+
+        ![Sign up alert](documentation/features/auth_signup_alert.png)
+
+    - Upon clicking the __Sign Up__ button, a notification displays to let the user know there will be a verification email.
+
+        ![Sign up - verify email message](documentation/features/auth_signup_step2.png)
+
+    - A verification email is sent to the email address.
+
+        ![Sign up - verification email](documentation/features/auth_signup_step3.png)
+
+    - Once the user clicks the link on the verification email, they are redirected to the website to confirm.
+
+        ![Sign up - confirm email button](documentation/features/auth_signup_step4.png)
+
+    - Once the user clicks the __Confirm__ button, they are redirected to the sign in page.
+
+        ![Sign up - email confirmed](documentation/features/auth_signup_step5.png)
+
+- Sign in page
+
+    ![Sign in page](documentation/features/auth-signin.png)
+
+    - A username and password are used for signing in.
+    - Feedback is given if invalid.
+
+        ![Sign in alert](documentation/features/auth_signin_alert.png)
+
+- Sign out page
+
+    ![Sign out page](documentation/features/auth_signout.png)
+
+    - Upon clicking the __Sign Out__ button, a user is redirected to the confirmation page to make sure.
+    - The user can select either __Sign Out__ or __Cancel__ if they have accidentally clicked the __Sign Out__ button.
+    - The user is redirected to the previous page by clicking the __Cancel__ button or to the homepage by clicking the __Sign Out__ button.
+
+- Reset password
+
+    In case the user has forgotten their password, they can reset their password.
+    
+    - The password link button is accessible through the link on the sign in page.
+
+        ![Reset password - forgot password button](documentation/features/auth_resetpw_step1.png)
+
+    - The user is redirected to the password reset page to enter their email address.
+
+        ![Reset password - Enter email address](documentation/features/auth_resetpw_step2.png)
+
+    - Once the user enters a valid email address, feedback is given.
+
+        ![Reset password - Notification](documentation/features/auth_resetpw_step3.png)
+
+    - A reset password link is sent by email.
+
+        ![Reset password - Reset password link](documentation/features/auth_resetpw_step4.png)
+
+    - Once the user clicks the link, they are redirected to the website to set their new password.
+
+        ![Reset password - New password input](documentation/features/auth_resetpw_step5.png)
+
+    - Feedback is given when the password has been successfully reset.
+
+        ![Reset password - Confirmation](documentation/features/auth_resetpw_step6.png)
+
+### Search results page
+
+![Search results page](documentation/features/search_found.png)
+
+- The site searches the keyword against post titles and their content.
+- It displays a number of results: If there are no results found, a link to create a post encourages the user to create their post.
+
+    ![Search results page when no post found](documentation/features/search_notfound.png)
+
+- The layout is identical to the category page. Users can select a post to view the details from the list of search results.
+
+## Features Left to Implement
+
+- This project was built to produce a minimum viable product and the more ambitious or scaling features didn't make the cut.
+
+- Korean localisation and Google Translation API
+
+    Korean localisation for KRIE as well as integration with Google's translation API to support auto-translation of user content.
+
+    The website is currently in English as it was developed for educational purposes. It would make more sense if the site provides an option for switching between Korean and English. Additionally, a translation API that integrates directly with user content would ensure the website had the biggest reach possible and could even support additional communities/languages. 
+
+- Direct Message (DM) and secret comments
+
+    In most cases, these features are not necessary to ask and answer general questions, but when it comes to trading goods or offering/seeking accommodation; features like DM or secret comments would be important as the users can privately share their personal/contact information.
+
+- New comment notification to the relevant user(OP)
+
+    Currently, the users need to check manually if there's a new comment for their post. It will be much more convenient if the user receives a notification.
+
+[Back To **Table of Contents**](#table-of-contents)
+
+<br>
+
 # Technologies Used
 
 ## Languages
 
 - [Python](https://www.python.org/) was used as the main scripting language.
     - The list of third-party packages can be found [here: requirements.txt](requirements.txt).
-- [HTML](https://en.wikipedia.org/wiki/HTML) was used to present and structure content.
+- [HTML](https://en.wikipedia.org/wiki/HTML) with [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) was used to present and structure content.
 - [CSS](https://en.wikipedia.org/wiki/CSS) was used to style content.
-- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) was used to automatically close the alerts.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) ( [jQuery](https://jquery.com/) ) was used to manipulate DOM.
 
 ## Framework
 
