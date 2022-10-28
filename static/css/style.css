@@ -147,7 +147,7 @@
 /*--------------- Hero section ---------------*/
 
 .hero-section {
-    background: url('../img/home/stroke.jpg');
+    background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666909874/static/img/home/stroke.89e76b5a8d6d.jpg');
     height: 90vh;
     max-height: 50rem;
 }
@@ -249,7 +249,7 @@
     /*--------------- Homepage ---------------*/
 
     .hero-section {
-        background: url('../img/home/stroke_medium.jpg');
+        background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666909875/static/img/home/stroke_medium.ba21f2cff56d.jpg');
     }
 
     .categories {
@@ -287,7 +287,7 @@
     /*--------------- Homepage ---------------*/
 
     .hero-section {
-        background: url('../img/home/stroke_large.jpg');
+        background: url('https://res.cloudinary.com/sejung-cloud/image/upload/v1666909873/static/img/home/stroke_large.01ebda722a35.jpg');
     }
 
     .hero-text > h1 {
