@@ -33,7 +33,7 @@ class CommentForm(ModelForm):
         self.helper = FormHelper(form=self)
         self.fields['body'].label = False
         self.fields['body'].widget.attrs['rows'] = 3
-        self.fields['body'].widget.attrs.update({'class': 'input-comment'})
+        self.fields['body'].widget.attrs.update({'class': 'input-comment', 'placeholder': 'A maximum of 255 characters.'})
 
     class Meta:
         model = Comment
