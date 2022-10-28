@@ -71,8 +71,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 ACCOUNT_ADAPTER = 'krie.adapter.UsernameMaxAdapter'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 EMAIL_TIMEOUT = 5
 EMAIL_HOST = 'smtp.gmail.com'
@@ -80,7 +81,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'no-reply@krie.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 AUTHENTICATION_BACKENDS = [
