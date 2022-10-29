@@ -48,6 +48,11 @@ __Note__: The site is for educational purposes only and written in English.
 - [Making a Local Clone](#making-a-local-clone)
 - [Forking this Repository](#forking-this-repository)
 
+[Credits](#credits)
+- [Code](#code)
+- [Content](#content)
+- [Acknowledgements](#acknowledgements)
+
 <br>
 
 # User Experience (UX)
@@ -513,6 +518,20 @@ The site features a fully responsive design and contains 5 category pages(__Room
 - Only logged in users can create posts.
 - The form provides a widget where users can upload images and style content.
 
+### Post edit page
+
+![Post edit page](https://media.giphy.com/media/unuofk8xoSja6dfYeS/giphy.gif)
+
+- Only authorised user can edit their own post.
+- The form is prefilled with the previous value to easily edit their content.
+
+### Post delete page
+
+![Post delete page](documentation/features/post_delete.png)
+
+- Only authorised user can delete their own post.
+- Upon clicking the delete button, users are redirected to confirmation page to make sure their decision.
+
 ### Profile page
 
 - This page is available to a signed in user to edit their own profile and to look up other users.
@@ -698,6 +717,7 @@ Django-allauth was used for authentication pages.
 - [Eightshapes](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23DB2A37%0D%0A%230C51AB%0D%0A%23000%0D%0A%2356AA35%0D%0A%23FFF%0D%0A%23F57B23&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18) was used to check the colour combination for accessibility purposes.
 - [Favicon.io](https://favicon.io/) was used to create the favicon.
 - [Font Awesome](https://fontawesome.com/) was used for the icons.
+- [GIPHY](https://giphy.com/) was used to convert video files to GIFs for the README.
 - [Git](https://git-scm.com/) was used for version control.
 - [GitHub](https://github.com/) was used to store and deploy the project's code.
 - [Gitpod](https://www.gitpod.io/) was used to develop and test my code.
@@ -1102,3 +1122,30 @@ Note: It is crucial to create a virtual environment to run the project on your l
 [Back To **Table of Contents**](#table-of-contents)
 
 <br>
+
+# Credits
+
+## Code
+
+- I highly relied upon the [Django 3.2 documentation](https://docs.djangoproject.com/en/3.2/) and [django-allauth documentation](https://django-allauth.readthedocs.io/en/latest/installation.html) as well as [Stack Overflow](https://stackoverflow.com/) posts.
+
+- I have modified the [_Code Institute_](https://codeinstitute.net/) walkthrough project __I Think Therefore I__'s `Post` and `Comment` models and their views. 
+
+- The pagination code was created with the help of [this tutorial](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html).
+
+## Content
+
+Images used on the homepage are from [_Pxhere_](https://pxhere.com/), [_Unsplash_](https://unsplash.com/) and [_Pexels_](https://www.pexels.com/).
+
+- For rooms: [_Pxhere_](https://pxhere.com/en/photo/825003)
+- For jobs: [_Unsplash_](https://unsplash.com/photos/fY8Jr4iuPQM)
+- For visas: [_Unsplash_](https://unsplash.com/photos/htQznS-Rx7w)
+- For market: [_Pexels_](https://www.pexels.com/photo/crop-woman-with-white-and-red-paper-bags-sitting-on-bench-after-shopping-7319108/)
+- For random: [_Unsplash_](https://unsplash.com/photos/tnzzr8HpLhs)
+
+## Acknowledgements
+
+- My fiancé Ciarán Maher for his support, feedback and proofreading.
+- My mentor Narender Singh for his guidance.
+
+[Back To **Table of Contents**](#table-of-contents)
