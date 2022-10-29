@@ -18,9 +18,10 @@ class SearchView(ListView):
             return queryset.filter(
                 Q(title__icontains=q) | Q(body__icontains=q)).order_by(
                 'title', '-created_on').distinct('title')
-        return q
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['q'] = self.request.GET.get('q')
+        context['qs'] = self.request.GET.get('q')
+        print(context['qs'])
         return context
