@@ -45,76 +45,9 @@
     {% if not posts %}
     <p class="fs-3">{% trans "There are no posts in this category." %}</p>
     {% endif %}
-    {% for post in page_obj %}
-    <div class="row">
-        <div class="col-9">
-            <div class="row">
-                <div class="col-12 col-lg-9">
-                    <a class="fs-5 fw-bold link-dark text-decoration-none hover-underline"
-                        href="{% url 'read_post' category_slug=post.category.slug post_id=post.id %}">{{ post.title }}</a>
-                </div>
-                <div class="col-4 col-lg-2 text-start text-lg-center">
-                    <a class="fw-bold link-dark text-decoration-none hover-underline"
-                        href="{% url 'read_profile_about' pk=post.author.id %}">{{ post.author }}</a>
-                </div>
-                <div class="col-8 col-lg-1 text-start text-lg-center">
-                    <small>{{ post.updated_on | date:'d/m/Y' }}</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-2 d-flex align-items-center justify-content-center">
-            <i class="d-inline d-lg-none ps-0 p-1 p-lg-2 fa-solid fa-comment-dots"></i>
-            <small>{{ post.number_of_comments }}</small>
-        </div>
-        <div class="col-1 d-flex align-items-center justify-content-center">
-            <i class="d-inline d-lg-none ps-0 p-1 p-lg-2 fa-solid fa-heart"></i>
-            <small>{{ post.number_of_likes }}</small>
-        </div>
-    </div>
-    <hr class="my-2">
-    {% endfor %}
+    {% include '../components/post_list_layout.html' %}
 
-    {% if is_paginated %}
-    <nav class="mt-auto" aria-label="Page navigation">
-        <ul class="pagination pagination-sm justify-content-center">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a class="page-link text-dark" href="?page=1" aria-label="First page"><span aria-hidden="true">{% trans "&laquo;" %}</span></a>
-            </li>
-            <li class="page-item">
-                <a class="page-link text-dark" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page"><span aria-hidden="true">{% trans "&lsaquo;" %}</span></a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a class="page-link text-dark" href="?page=1" aria-label="First page"><span aria-hidden="true">{% trans "&laquo;" %}</span></a>
-            </li>
-            <li class="page-item disabled"><span class="page-link">{% trans "&lsaquo;" %}</span></li>
-            {% endif %}
-
-            {% for i in paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{ i }}" aria-label="Current page"><span aria-hidden="true">{{ i }}</span></a></li>
-                {% else %}
-                    <li class="page-item"><a class="page-link text-dark" href="?page={{ i }}" aria-label="Page {{ i }}"><span aria-hidden="true">{{ i }}</span></a></li>
-                {% endif %}
-            {% endfor %}
-
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link text-dark" href="?page={{ page_obj.next_page_number }}" aria-label="Next page"><span aria-hidden="true">{% trans "&rsaquo;" %}</span></a>
-            </li>
-            <li class="page-item">
-                <a class="page-link text-dark" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page"><span aria-hidden="true">{% trans "&raquo;" %}</span></a>
-            </li>
-            {% else %}
-            <li class="page-item disabled"><span class="page-link">{% trans "&rsaquo;" %}</span></li>
-            <li class="page-item disabled">
-                <a class="page-link text-dark" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page"><span aria-hidden="true">{% trans "&raquo;" %}</span></a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+    {% include '../components/pagination.html' %}
 
 </main>
 

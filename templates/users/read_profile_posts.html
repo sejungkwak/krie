@@ -18,21 +18,10 @@
             <h1 class="fw-bold mb-0">{{ profile.user.username | capfirst }}</h1>
         </div>
         {% if request.user == profile.user %}
-        <div class="col-auto d-flex d-lg-none">
-            <div class="dropdown">
-                <button class="btn btn-like" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-gear fa-xl"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'read_profile_posts' pk=request.user.pk %}">{% trans "Activity" %}</a></li>
-                    <li><a class="dropdown-item" href="{% url 'update_profile' pk=request.user.pk %}">{% trans "Edit profile" %}</a></li>
-                    <li><a class="dropdown-item"
-                            href="{% url 'account_change_password' %}">{% trans "Change password" %}</a></li>
-                </ul>
-            </div>
-        </div>
+            {% include '../components/profile_nav.html' %}
         {% endif %}
     </header>
+
     <div class="row mt-1 mt-md-4 mt-lg-5">
         {% if request.user == profile.user %}
         <nav class="navbar navbar-light col-2 d-none d-lg-block">
@@ -73,14 +62,14 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="col-2 col-lg-1 pe-0 text-center d-flex align-items-center justify-content-center">
-                                    <i class="d-inline p-2 fa-solid fa-comment-dots"></i>
+                                    class="col-2 col-lg-1 gap-2 pe-0 text-center d-flex align-items-center justify-content-center">
+                                    <svg class="icon-container" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="icon-path__black" d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-32c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32z"/></svg>
                                     <small>{{ post.number_of_comments }}</small>
                                 </div>
                                 <div
-                                    class="col-2 col-lg-1 pe-0 text-center d-flex align-items-center justify-content-end">
-                                    <i class="d-inline p-2 fa-solid fa-heart"></i>
-                                    <small>{{ post.number_of_likes }}</small>
+                                    class="col-2 col-lg-1 gap-2 pe-0 text-center d-flex align-items-center justify-content-end">
+                                    <svg class="icon-container" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="icon-path__black" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                                    <small> {{ post.number_of_likes }}</small>
                                 </div>
                                 <hr class="my-2">
                                 {% endfor %}
@@ -90,47 +79,7 @@
                         </div>
                     </section>
 
-                    {% if is_paginated %}
-                    <nav class="mt-auto" aria-label="Page navigation">
-                        <ul class="pagination pagination-sm justify-content-center">
-                            {% if page_obj.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link text-dark" href="?page=1" aria-label="First page"><span aria-hidden="true">{% trans "&laquo;" %}</span></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link text-dark" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page"><span aria-hidden="true">{% trans "&lsaquo;" %}</span></a>
-                            </li>
-                            {% else %}
-                            <li class="page-item disabled">
-                                <a class="page-link text-dark" href="?page=1" aria-label="First page"><span aria-hidden="true">{% trans "&laquo;" %}</span></a>
-                            </li>
-                            <li class="page-item disabled"><span class="page-link">{% trans "&lsaquo;" %}</span></li>
-                            {% endif %}
-
-                            {% for i in paginator.page_range %}
-                                {% if page_obj.number == i %}
-                                    <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{ i }}" aria-label="Current page"><span aria-hidden="true">{{ i }}</span></a></li>
-                                {% else %}
-                                    <li class="page-item"><a class="page-link text-dark" href="?page={{ i }}" aria-label="Page {{ i }}"><span aria-hidden="true">{{ i }}</span></a></li>
-                                {% endif %}
-                            {% endfor %}
-
-                            {% if page_obj.has_next %}
-                            <li class="page-item">
-                                <a class="page-link text-dark" href="?page={{ page_obj.next_page_number }}" aria-label="Next page"><span aria-hidden="true">{% trans "&rsaquo;" %}</span></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link text-dark" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page"><span aria-hidden="true">{% trans "&raquo;" %}</span></a>
-                            </li>
-                            {% else %}
-                            <li class="page-item disabled"><span class="page-link">{% trans "&rsaquo;" %}</span></li>
-                            <li class="page-item disabled">
-                                <a class="page-link text-dark" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page"><span aria-hidden="true">{% trans "&raquo;" %}</span></a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                    {% endif %}
+                    {% include '../components/pagination.html' %}
 
                 </article>
             </div>

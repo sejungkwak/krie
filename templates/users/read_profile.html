@@ -13,26 +13,16 @@
 {% block content %}
 
 <main class="container mt-1 mt-lg-5 flex-shrink-0">
+
     <header class="row">
         <div class="d-flex align-items-center col-auto col-lg-12">
             <h1 class="fw-bold mb-0">{{ profile.user.username | capfirst }}</h1>
         </div>
         {% if request.user == profile.user %}
-        <div class="col-auto d-flex d-lg-none">
-            <div class="dropdown">
-                <button class="btn btn-like" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-gear fa-xl"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'read_profile_posts' pk=request.user.pk %}">{% trans "Activity" %}</a></li>
-                    <li><a class="dropdown-item" href="{% url 'update_profile' pk=request.user.pk %}">{% trans "Edit profile" %}</a></li>
-                    <li><a class="dropdown-item"
-                            href="{% url 'account_change_password' %}">{% trans "Change password" %}</a></li>
-                </ul>
-            </div>
-        </div>
+            {% include '../components/profile_nav.html' %}
         {% endif %}
     </header>
+
     <div class="row mt-1 mt-md-4 mt-lg-5">
         {% if request.user == profile.user %}
         <nav class="navbar navbar-light col-2 d-none d-lg-block">

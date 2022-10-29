@@ -135,11 +135,26 @@
     background-color: #fff;
 }
 
-/*--------------- Post like buttons ---------------*/
+/*=============== SVG icons ===============*/
 
-.heart-fill,
-.heart-outline {
-    color: var(--blue-color);
+.icon-container {
+    width: 1rem;
+}
+
+.icon-container__large {
+    width: 1.5rem;
+}
+
+.icon-path {
+    fill: var(--blue-color);
+}
+
+.icon-path__black {
+    fill: #000;
+}
+
+.icon-path__gray {
+    fill: var(--bs-gray-600);
 }
 
 /*=============== Homepage ===============*/
