@@ -34,6 +34,8 @@ __Note__: The site is for educational purposes only and written in English.
 - [Implemented Features](#implemented-features)
 - [Features Left to Implement](#features-left-to-implement)
 
+[Testing](#testing)
+
 [Technologies Used](#technologies-used)
 - [Languages](#languages)
 - [Framework](#framework)
@@ -305,7 +307,7 @@ To provide a platform where a user can easily find information and interact with
 
 ## MoSCoW method and story points
 
-_Github_ Projects kanban board and Issues were used to practise agile methodology. After creating the user stories, I prioritised each story using MoSCoW method, excluded ‘won't have' stories and set the points using modified Fibonacci sequence(1, 2, 3, 5, 8, 13, 20) based on complexity, amount of work and repetition.
+_Github_ Projects kanban board and Issues were used to practise agile methodology. After creating the user stories, I prioritised each story using MoSCoW method, excluded `won't have` stories and set the points using modified Fibonacci sequence(1, 2, 3, 5, 8, 13, 20) based on complexity, amount of work and repetition.
 The details are as following:
 
 ### Theme: Website appearance
@@ -657,6 +659,29 @@ Django-allauth was used for authentication pages.
 - New comment notification to the relevant user(OP)
 
     Currently, the users need to check manually if there's a new comment for their post. It will be much more convenient if the user receives a notification.
+
+[Back To **Table of Contents**](#table-of-contents)
+
+<br>
+
+# Testing
+
+## Code Validation
+
+- HTML Validation
+    - No errors or warnings were found when passing through the [W3C Markup Validator](https://validator.w3.org/).
+
+- CSS Validation
+    - No errors were found when passing through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+    - There are warnings related to the Bootstrap
+
+- JS Validation
+    - No errors or warnings were found when passing through [JSHint](https://jshint.com/).
+
+- Python Validation
+    - [pycodestyle](https://pypi.org/project/pycodestyle/) was utilised for PEP8 validation. There are 5 line-length related issues remaining. As these are from the Django's configuration, I have left them as it is.
+
+- Please refer to [this link](documentation/VALIDATION.md) for more details.
 
 [Back To **Table of Contents**](#table-of-contents)
 
