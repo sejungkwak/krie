@@ -40,8 +40,11 @@ __Note__: The site is for educational purposes only and written in English.
 - [Programs](#programs)
 
 [Testing](#testing)
-- [Testing User Stories from the User Experience (UX) Section](#testing-user-stories-from-the-user-experience-ux-section)
+- [Testing User Stories](#testing-user-stories-from-the-user-experience-ux-section)
 - [Code Validation](#code-validation)
+- [Functionality Testing](#functionality-testing)
+- [Performance Testing](#performance-testing)
+- [Bugs](#bugs)
 
 [Deployment](#deployment)
 - [Heroku](#heroku)
@@ -1005,8 +1008,6 @@ Django-allauth was used for authentication pages.
 
         </details>
 
-<br>
-
 ## Code Validation
 
 - HTML Validation
@@ -1023,6 +1024,53 @@ Django-allauth was used for authentication pages.
     - [pycodestyle](https://pypi.org/project/pycodestyle/) was utilised for PEP8 validation. There are 5 line-length related issues remaining. As these are from the Django's configuration, I have left them as it is.
 
 - Please refer to [this link](documentation/VALIDATION.md) for more details.
+
+## Functionality Testing
+
+- I have tested the site's functionality manually in Chrome version 106.0 on macOS Monterey version 12.6.
+- 1 Test has failed. The updating email address does not validate uniqueness and empty value properly.
+- Please refer to [this link](https://docs.google.com/spreadsheets/d/1uuMGUbLW4s1QDS1LojqAZw2qfVqhWNuBI0yhH_f48Gc/edit?usp=sharing) for more details.
+
+## Performance Testing
+
+- I have measured the performance, accessibility, best practices and SEO using [Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome DevTools in incognito mode.
+
+    ![Lighthouse testing homepage report](documentation/testing/lighthouse.png)
+
+- As shown in the screenshot above, the report indicated high quality in accessibility, best practices and SEO. However, the performance score raised issues related to _Bootstrap_, _Cloudinary_ and _Heroku_.
+
+    ![Lighthouse testing homepage opportunity](documentation/testing/lighthouse_opportunity.png)
+
+- I have converted image files to SVG tags, modified the background image and eliminated _Font Awesome_ CDN by using SVGs to improve the score. As _Bootstrap_, _Cloudinary_ and _Heroku_ are not replaceable at this point, I have decided not to pursue any further.
+
+## Bugs
+
+### Fixed Bugs
+
+- Static file not loading
+
+    - Issue: Background images did not load and it was throwing a 404 error.
+    - Reason: The images' relative paths were used in CSS and _Cloudinary_ could not find them.
+    - Fix: I replaced the relative paths with the _Cloudinary_ URL.
+    - [Fix details](https://github.com/sejungkwak/krie/commit/73795732507f678cd110916c22242c6c5be56ab7)
+
+- Username validation
+
+    - Issue: I created a custom error message for a duplicate username. It did not raise an error for an invalid username.
+    - Fix: I replaced the custom error validity with Django's default validation.
+    - [Fix details](https://github.com/sejungkwak/krie/commit/e78a7b13f432bed08fb58616d9d2f3da82baefa2)
+
+- Reset password with unregistered email address
+
+    - Issue: A 500 server error occurred when inputting an unregistered email for a password reset request. This was because django-allauth was looking up the database to find the email and associated username which do not exist. [django-allauth](https://django-allauth.readthedocs.io/en/latest/configuration.html) explains this matter in their documentation.
+    - Fix: I Set ACCOUNT_PREVENT_ENUMERATION to False.
+    - [Fix details](https://github.com/sejungkwak/krie/commit/00b0b5a0785bcf64f233660f524c5689d78b9c03)
+
+### Known Bugs
+
+- Email validation on updating profile
+
+    - The email validation only works when the changed username is also invalid.
 
 [Back To **Table of Contents**](#table-of-contents)
 
