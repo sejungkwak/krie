@@ -97,7 +97,8 @@ class ProfileUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
 
     def get(self, request, *args, **kwargs):
         """
-        Retrieve the user's profile data and display current values in the form.
+        Retrieve the user's profile data
+        and display current values in the form.
         """
         id = self.kwargs.get('pk')
         profile = get_object_or_404(Profile, pk=id)
@@ -108,8 +109,10 @@ class ProfileUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
         user_form = self.user_form_class
         profile_form = self.profile_form_class
         return render(request, self.template_name, {
-            'user_form': user_form(initial={'username': username, 'email': email}),
-            'profile_form': profile_form(initial={'location': location, 'bio': bio})
+            'user_form': user_form(
+                initial={'username': username, 'email': email}),
+            'profile_form': profile_form(
+                initial={'location': location, 'bio': bio})
         })
 
     def post(self, request, *args, **kwargs):

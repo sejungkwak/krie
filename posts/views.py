@@ -259,7 +259,8 @@ class CommentDeleteView(UserPassesTestMixin, DeleteView):
         Delete a comment from the database.
         """
         object = self.get_object()
-        messages.success(request, 'Your comment has been successfully deleted.')
+        messages.success(
+            request, 'Your comment has been successfully deleted.')
         return super().delete(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -276,6 +277,7 @@ class PostLikeView(View):
     """
     Display the user's interaction with the like button.
     """
+
     def post(self, request, *arg, **kwargs):
         """
         Toggle the status of a like.

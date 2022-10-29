@@ -3,7 +3,8 @@ from django.forms import ModelForm, Select, TextInput
 from django_summernote.widgets import SummernoteWidget
 from crispy_forms.helper import FormHelper
 
-choice_list = [('rooms', 'Rooms'), ('jobs', 'Jobs'), ('visas', 'Visas'), ('market', 'Market'), ('random', 'Random')]
+choice_list = [('rooms', 'Rooms'), ('jobs', 'Jobs'),
+               ('visas', 'Visas'), ('market', 'Market'), ('random', 'Random')]
 
 
 class PostForm(ModelForm):
@@ -33,7 +34,9 @@ class CommentForm(ModelForm):
         self.helper = FormHelper(form=self)
         self.fields['body'].label = False
         self.fields['body'].widget.attrs['rows'] = 3
-        self.fields['body'].widget.attrs.update({'class': 'input-comment', 'placeholder': 'A maximum of 255 characters.'})
+        self.fields['body'].widget.attrs.update(
+            {'class': 'input-comment',
+             'placeholder': 'A maximum of 255 characters.'})
 
     class Meta:
         model = Comment

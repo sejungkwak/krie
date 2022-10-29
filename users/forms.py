@@ -49,7 +49,8 @@ class UserUpdateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(form=self)
         self.fields['username'].widget.attrs.update({'maxlength': 15})
-        self.fields['username'].help_text = '15 characters or fewer. Letters, digits and @/./+/-/_ only.'
+        self.fields['username'].help_text = ('15 characters or fewer. Letters,'
+                                             ' digits and @/./+/-/_ only.')
 
     class Meta:
         model = User
@@ -84,5 +85,8 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['location', 'bio']
         widgets = {
-            'location': forms.Select(choices=choice_list, attrs={'class': 'form-select'}),
+            'location': forms.Select(
+                choices=choice_list,
+                attrs={
+                    'class': 'form-select'}),
             'bio': forms.Textarea()}
