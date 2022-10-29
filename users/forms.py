@@ -68,6 +68,8 @@ class UserUpdateForm(forms.ModelForm):
 
         if email and User.objects.filter(email=email).count() > 1:
             raise forms.ValidationError(f'{email} is already in use.')
+        elif email == '':
+            raise forms.ValidationError('Please fill in the email field.')
         return self.cleaned_data
 
 
