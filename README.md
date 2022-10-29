@@ -35,6 +35,8 @@ __Note__: The site is for educational purposes only and written in English.
 - [Features Left to Implement](#features-left-to-implement)
 
 [Testing](#testing)
+- [Testing User Stories from the User Experience (UX) Section](#testing-user-stories-from-the-user-experience-ux-section)
+- [Code Validation](#code-validation)
 
 [Technologies Used](#technologies-used)
 - [Languages](#languages)
@@ -74,7 +76,7 @@ To provide a platform where a user can easily find information and interact with
     - [#3](https://github.com/sejungkwak/krie/issues/3) I want to view a list of posts' titles so that I can choose which one to read.
     - [#4](https://github.com/sejungkwak/krie/issues/4) I want to order the posts by their number of likes so that I can see which is the most popular.
     - [#5](https://github.com/sejungkwak/krie/issues/5) I want to view comments on an individual post so that I can read the conversation.
-    - [#6](https://github.com/sejungkwak/krie/issues/6) I want to search information with keywords so that I can easily find information that is useful and relevant to me.
+    - [#6](https://github.com/sejungkwak/krie/issues/6) I want to search for information with keywords so that I can easily find information that is useful and relevant to me.
     - [#7](https://github.com/sejungkwak/krie/issues/7) I want to sign up so that I can write posts, comment and give a like to other users' posts.
     - [#8](https://github.com/sejungkwak/krie/issues/8) I want to sign up with my _Google_ or _Facebook_ account so that I can easily sign in.
 
@@ -366,7 +368,7 @@ The details are as following:
 
     | Issue # | User Story | Prioritisation | Points |
     | :-----------: | :---------: | :-----------: | :-----------: |
-    |[#6](https://github.com/sejungkwak/krie/issues/6) | As an unregistered user, I want to search information with keywords so that I can easily find information that is useful and relevant to me. | Could have | 20 |
+    |[#6](https://github.com/sejungkwak/krie/issues/6) | As an unregistered user, I want to search for information with keywords so that I can easily find information that is useful and relevant to me. | Could have | 20 |
 
 - Epic: Profile
 
@@ -665,6 +667,320 @@ Django-allauth was used for authentication pages.
 <br>
 
 # Testing
+
+## Testing User Stories from the User Experience (UX) Section
+
+- As a first-time visitor,
+    - [x] [#1](https://github.com/sejungkwak/krie/issues/1) I want to know what this site is about immediately so that I can decide whether I will explore further.
+
+        <details>
+        <summary>Intuitive landing page</summary>
+
+        The text and image on the homepage help the users easily understand the purpose of the site.
+
+        ![Hero section](documentation/testing/user-stories/hero-section.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#2](https://github.com/sejungkwak/krie/issues/2) I want to navigate pages so that I can understand what types of information I could find here.
+
+        <details>
+        <summary>Easy to navigate</summary>
+
+        Users can easily navigate the site as the navigation menu provides links to each category.
+
+        ![Navigation](documentation/testing/user-stories/navigation.png)
+
+        </details>
+
+    <br>
+
+- As an unregistered user,
+    - [x] [#3](https://github.com/sejungkwak/krie/issues/3) I want to view a list of posts' titles so that I can choose which one to read.
+
+        <details>
+        <summary>Post list</summary>
+
+        The page displays a list of posts for the specified category in a well-organised manner.
+
+        ![Navigation](documentation/testing/user-stories/post-list.png)
+
+        </details>
+
+    <br>
+
+    - [ ] [#4](https://github.com/sejungkwak/krie/issues/4) I want to order the posts by their number of likes so that I can see which is the most popular.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    - [x] [#5](https://github.com/sejungkwak/krie/issues/5) I want to view comments on an individual post so that I can read the conversation.
+
+        <details>
+        <summary>Comment list</summary>
+
+        Users can view the comments without signing up.
+
+        ![Comment list](documentation/testing/user-stories/view-comments.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#6](https://github.com/sejungkwak/krie/issues/6) I want to search for information with keywords so that I can easily find information that is useful and relevant to me.
+
+        <details>
+        <summary>Search</summary>
+
+        Users can search for information with keywords. The results display a list of posts that contain the keyword.
+
+        ![Search bar](documentation/testing/user-stories/search-bar.png)
+
+        ![Search results](documentation/testing/user-stories/search-results.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#7](https://github.com/sejungkwak/krie/issues/7) I want to sign up so that I can write posts, comment and give a like to other users' posts.
+
+        <details>
+        <summary>Sign up with Email</summary>
+
+        Users can sign up with a username, email address and password.
+
+        ![Sign up](documentation/testing/user-stories/signup.png)
+
+        </details>
+
+    <br>
+
+    - [ ] [#8](https://github.com/sejungkwak/krie/issues/8) I want to sign up with my _Google_ or _Facebook_ account so that I can easily sign in.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+<br>
+
+- As a registered user,
+    - [x] [#9](https://github.com/sejungkwak/krie/issues/9) I want to create a post to ask about others' recent experiences with the immigration office so that I can prepare for my upcoming appointment.
+
+        <details>
+        <summary>Create post</summary>
+
+        Sign up users can create posts as well as update and delete them.
+
+        ![Create post](documentation/testing/user-stories/create-post.png)
+
+        </details>
+
+    <br>
+
+    - [ ] [#10](https://github.com/sejungkwak/krie/issues/10) I want to create a draft post so that I can continue it at a later date.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    <br>
+
+    - [x] [#11](https://github.com/sejungkwak/krie/issues/11) I want to leave comments on a post so that I can be involved in the conversation.
+
+        <details>
+        <summary>Leave comments</summary>
+
+        Signed in users can leave comments.
+
+        ![Leave comment](documentation/testing/user-stories/add-comment.png)
+
+        </details>
+
+    <br>
+
+    - [ ] [#12](https://github.com/sejungkwak/krie/issues/12) I want to leave secret comments with any sensitive information directly visible to the original poster so that I can comfortably share it.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    <br>
+
+    - [ ] [#13](https://github.com/sejungkwak/krie/issues/13) I want to send direct messages to other users so that I can interact with them privately.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    <br>
+
+    - [x] [#14](https://github.com/sejungkwak/krie/issues/14) I want to give a like to a post so that I can highlight useful content for other users.
+
+        <details>
+        <summary>Give a like</summary>
+
+        Signed in users can give a like by clicking the heart icon.
+
+        ![Give a like](https://media.giphy.com/media/EnOUkuUkP0LkpS6cKR/giphy.gif)
+
+        </details>
+    <br>
+
+    - [x] [#15](https://github.com/sejungkwak/krie/issues/15) I want to remove a like from a post so that I can ensure that I only give it to the content I feel is useful.
+
+        <details>
+        <summary>Remove a like</summary>
+
+        Signed in users can remove their own like by clicking the heart icon again.
+
+        ![Remove a like](https://media.giphy.com/media/EnOUkuUkP0LkpS6cKR/giphy.gif)
+
+        </details>
+
+    <br>
+
+    - [x] [#16](https://github.com/sejungkwak/krie/issues/16) I want to edit my post so that I can correct any mistakes or update other users with new information.
+
+        <details>
+        <summary>Edit post</summary>
+
+        Users can edit their own post.
+
+        ![Edit post](https://media.giphy.com/media/u9BowGYlcgPSDUQyX5/giphy.gif)
+
+        </details>
+
+    <br>
+
+    - [x] [#17](https://github.com/sejungkwak/krie/issues/17) I want to delete my post if no one answers my question so that I can maintain a clean profile.
+
+        <details>
+        <summary>Delete post</summary>
+
+        Users can delete their own post.
+
+        ![Delte post](documentation/testing/user-stories/delete-post.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#18](https://github.com/sejungkwak/krie/issues/18) I want to see another user's posts and comments by clicking the username so that I can decide if the user is trustworthy.
+
+        <details>
+        <summary>View profile</summary>
+
+        Logged in users can view other users' profile.
+
+        ![View other users' profile](documentation/testing/user-stories/profile-other.png)
+
+        </details>
+
+    <br>
+
+    - [ ] [#19](https://github.com/sejungkwak/krie/issues/19) I want to see what posts I marked with a like so that I can easily find the post again.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    - [ ] [#20](https://github.com/sejungkwak/krie/issues/20) I want to get notified when there is a new comment on my posts so that I can follow up.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    - [x] [#21](https://github.com/sejungkwak/krie/issues/21) I want to sign in and sign out of my account with my credentials so that I can keep my account secure.
+
+        <details>
+        <summary>Sign in and sign out</summary>
+
+        The Sign in / out buttons can be found on the right side of the navigation bar.
+
+        ![Sign in button](documentation/testing/user-stories/Signin-button.png)
+        ![Sign out button](documentation/testing/user-stories/Signout-button.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#22](https://github.com/sejungkwak/krie/issues/22) I want to update my password so that I can keep my account secure.
+
+        <details>
+        <summary>Update password</summary>
+
+        Users can update their password on the profile page.
+
+        ![Update password](documentation/testing/user-stories/password-change.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#23](https://github.com/sejungkwak/krie/issues/23) I want to reset my password so that I can access my account even if I forget it.
+
+        <details>
+        <summary>Reset password</summary>
+
+        Users can reset their password by clicking the __Forgot password?__ link on the sign in page. A password reset link is sent to the registered email.
+
+        ![Reset password](documentation/testing/user-stories/password-reset.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#35](https://github.com/sejungkwak/krie/issues/35) I want to update my profile so that I can keep my information up to date.
+
+        <details>
+        <summary>Update profile</summary>
+
+        Users can edit their own profile including their username, email address, location and description.
+
+        ![Edit profile](documentation/testing/user-stories/edit-profile.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#36](https://github.com/sejungkwak/krie/issues/36) I want to get feedback so that I can ensure that I have interacted with the website correctly.
+
+        <details>
+        <summary>Feedback</summary>
+
+        Relevant feedback is given for a user's interaction. Examples of notifications and warnings are as below:
+
+        ![Sign in](documentation/testing/user-stories/feedback-signin.png)
+        ![Save comment](documentation/testing/user-stories/feedback-comment.png)
+        ![Edit profile](documentation/testing/user-stories/feedback-edit-profile.png)
+        ![Edit profile error](documentation/testing/user-stories/feedback-edit-profile-error.png)
+
+        </details>
+
+- As a superuser,
+    - [ ] [#24](https://github.com/sejungkwak/krie/issues/24) I want to pin important posts so that users can easily view them.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories.
+
+    - [ ] [#25](https://github.com/sejungkwak/krie/issues/25) I want to create a category when needed so that I can manage the site effectively.
+
+        : This feature has not been implemented as I prioritised each story using MoSCoW method, excluded `won't have` stories. A superuser can create a new category, but it won't be reflected on the website as there need some design changes. 
+
+    - [x] [#26](https://github.com/sejungkwak/krie/issues/26) I want to delete content when inappropriate so that I can maintain the site and ensure that only useful or relevant content remains.
+
+        <details>
+        <summary>Delete content</summary>
+
+        A superuser has permission to delete content in the admin panel.
+
+        ![Deleting inappropriate content](documentation/testing/user-stories/mass-deletion.png)
+        ![Deleting inappropriate content from the post detail view](documentation/testing/user-stories/delete-content.png)
+
+        </details>
+
+    <br>
+
+    - [x] [#27](https://github.com/sejungkwak/krie/issues/27) I want to ban scammers'/spammers' accounts so that I can ensure only trusted users can access the site.
+
+        <details>
+        <summary>Ban malicious users' accounts</summary>
+
+        A superuser can ban malicious users' accounts by unchecking the Active checkbox in the admin panel.
+
+        ![Ban user](documentation/testing/user-stories/ban-user.png)
+
+        </details>
+
+<br>
 
 ## Code Validation
 
