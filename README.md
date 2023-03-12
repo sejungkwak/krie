@@ -4,7 +4,7 @@ _KRIE_ is a website for Korean people living in Ireland to share information abo
 
 ![Multi device website mockup](documentation/responsive.png)
 
-### View the live project [here](https://krie.herokuapp.com/)
+### View the live project [here](https://krie.onrender.com)
 
 __Note__: The site is for educational purposes only and written in English.
 
@@ -209,6 +209,8 @@ To provide a platform where a user can easily find information and interact with
 ## Database
 
 [_Heroku_ PostgreSQL](https://devcenter.heroku.com/categories/heroku-postgres) was used for the main database from the earliest stage of development.
+
+The database has been switched to [ElephantSQL](https://www.elephantsql.com/).
 
 ## Entity Relationship Diagram
 
@@ -726,7 +728,8 @@ Django-allauth was used for authentication pages.
 - [Gitpod](https://www.gitpod.io/) was used to develop and test my code.
 - [Google Fonts](https://fonts.google.com/) was used to import Gothic A1 into the style.css file.
 - [Grammarly](https://www.grammarly.com/) was used to check for errors in the README.
-- [Heroku](https://heroku.com/) was used to deploy the project.
+- [Heroku](https://heroku.com/) was initially used to deploy the project.
+- [Render](https://render.com/) was used to deploy the project.
 - [Pixlr](https://pixlr.com/) was used to change the hero section image colours.
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/) was used to create the site's privacy policy.
 - [Techsini](https://techsini.com/multi-mockup/index.php) was used to create the image showing a responsive design for the README.
